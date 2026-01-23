@@ -7,9 +7,9 @@ const Contact = () => {
   return (
     <section id="contact" className="py-32 px-4 md:px-12 bg-obsidian">
         <div className="max-w-4xl mx-auto text-center">
-            <ConvergenceWrapper>
-                <h2 className="font-serif text-5xl text-bone mb-8">INITIATE <span className="text-magma">CONTACT</span></h2>
-                <p className="font-sans text-taupe mb-12">For bespoke commissions or wholesale inquiries.</p>
+            <ConvergenceWrapper className="mb-24">
+                <h2 className="font-serif text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
+                <p className="font-sans text-taupe mt-4">For bespoke commissions or wholesale inquiries.</p>
             </ConvergenceWrapper>
 
             <ConvergenceWrapper delay={0.2}>

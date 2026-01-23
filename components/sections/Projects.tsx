@@ -39,8 +39,8 @@ const Gallery = () => {
     <section id="gallery" className="min-h-screen py-24 px-4 md:px-12 bg-obsidian relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <ConvergenceWrapper>
-          <h2 className="font-serif text-5xl md:text-7xl text-bone mb-10 text-center md:text-left">
+        <ConvergenceWrapper className="mb-24">
+          <h2 className="font-serif text-5xl md:text-7xl text-bone text-center md:text-left">
             THE <span className="text-magma italic">GALLERY</span>
           </h2>
         </ConvergenceWrapper>

@@ -30,16 +30,16 @@ const CandleDesigner = () => {
       {/* Background Gradient */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
-        <ConvergenceWrapper className="space-y-12">
-          <div>
-            <h2 className="font-serif text-5xl md:text-6xl text-bone">
-              ATELIER <span className="text-magma">CUSTOM</span>
-            </h2>
-            <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
-          </div>
+      <div className="max-w-7xl mx-auto relative z-10">
+        <ConvergenceWrapper className="mb-24">
+          <h2 className="font-serif text-5xl md:text-6xl text-bone">
+            ATELIER <span className="text-magma">CUSTOM</span>
+          </h2>
+          <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
+        </ConvergenceWrapper>
 
-          <div className="space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <ConvergenceWrapper className="space-y-8" staggerIndex={1}>
             {/* Geometry Selection */}
             <div>
               <label className="block text-sm font-sans text-magma uppercase tracking-widest mb-4">Geometry</label>
@@ -138,44 +138,44 @@ const CandleDesigner = () => {
                 <span className="font-sans text-bone uppercase">{design.color}</span>
               </div>
             </div>
-          </div>
-        </ConvergenceWrapper>
+          </ConvergenceWrapper>
 
-        {/* Preview Panel */}
-        <ConvergenceWrapper className="flex flex-col justify-center items-center" staggerIndex={1}>
-          <div className="w-full aspect-square relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center p-12">
-            {/* Abstract Visualizer */}
-            <div 
-              className="w-64 h-64 rounded-full blur-3xl transition-all duration-1000 opacity-60"
-              style={{ backgroundColor: design.color }}
-            />
-            <div className="absolute inset-0 flex items-center justify-center">
-              {design.shape === 'custom' && design.customImage ? (
-                <img 
-                  src={design.customImage} 
-                  alt="Custom design"
-                  className="max-w-[200px] max-h-[200px] object-contain rounded-lg shadow-2xl"
-                  style={{ boxShadow: `0 0 50px ${design.color}40` }}
-                />
-              ) : (
-                <div 
-                  className={`transition-all duration-500 bg-white/10 border border-white/20 backdrop-blur-sm shadow-2xl
-                    ${design.shape === 'pillar' ? 'w-32 h-64' : ''}
-                    ${design.shape === 'jar' ? 'w-48 h-56 rounded-b-xl' : ''}
-                    ${design.shape === 'custom' ? 'w-48 h-48 rounded-xl border-dashed' : ''}
-                  `}
-                  style={{ boxShadow: `0 0 50px ${design.color}40` }}
-                >
-                  {design.shape === 'custom' && !design.customImage && (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <Upload className="w-12 h-12 text-white/20" />
-                    </div>
-                  )}
-                </div>
-              )}
+          {/* Preview Panel */}
+          <ConvergenceWrapper className="flex flex-col justify-center items-center" staggerIndex={2}>
+            <div className="w-full aspect-square relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center p-12">
+              {/* Abstract Visualizer */}
+              <div 
+                className="w-64 h-64 rounded-full blur-3xl transition-all duration-1000 opacity-60"
+                style={{ backgroundColor: design.color }}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                {design.shape === 'custom' && design.customImage ? (
+                  <img 
+                    src={design.customImage} 
+                    alt="Custom design"
+                    className="max-w-[200px] max-h-[200px] object-contain rounded-lg shadow-2xl"
+                    style={{ boxShadow: `0 0 50px ${design.color}40` }}
+                  />
+                ) : (
+                  <div 
+                    className={`transition-all duration-500 bg-white/10 border border-white/20 backdrop-blur-sm shadow-2xl
+                      ${design.shape === 'pillar' ? 'w-32 h-64' : ''}
+                      ${design.shape === 'jar' ? 'w-48 h-56 rounded-b-xl' : ''}
+                      ${design.shape === 'custom' ? 'w-48 h-48 rounded-xl border-dashed' : ''}
+                    `}
+                    style={{ boxShadow: `0 0 50px ${design.color}40` }}
+                  >
+                    {design.shape === 'custom' && !design.customImage && (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <Upload className="w-12 h-12 text-white/20" />
+                      </div>
+                    )}
+                  </div>
+                )}
+              </div>
             </div>
-          </div>
-        </ConvergenceWrapper>
+          </ConvergenceWrapper>
+        </div>
       </div>
     </section>
   );
