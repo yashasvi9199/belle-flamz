@@ -2,8 +2,10 @@
 
 ## 1.2.4
 
-- change: Refined Gallery navigation (moved tiny images to bottom, removed all blur effects)
 - fix: Gallery images not loading (replaced placeholders with img tags)
+- change: Refined Gallery layout with center-aligned panels and optimized portrait preview sizing
+- change: Simplified Gallery layout with smooth fade-in transitions
+- change: Removed decorative asterisks and tiny navigation images for a cleaner look
 
 ## 1.2.3
 

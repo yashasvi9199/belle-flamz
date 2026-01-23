@@ -18,14 +18,7 @@ const Gallery = () => {
 
   const selectedImage = images[selectedIndex];
 
-  // Get single prev/next images for the asterisk pattern
-  const prevImage = useMemo(() => {
-    return selectedIndex > 0 ? images[selectedIndex - 1] : null;
-  }, [selectedIndex, images]);
-
-  const nextImage = useMemo(() => {
-    return selectedIndex < images.length - 1 ? images[selectedIndex + 1] : null;
-  }, [selectedIndex, images]);
+  // No longer using tiny navigation images
 
   // Check if scrollbar needed (more than 6 images with 3 per row = 2 rows)
   useEffect(() => {
@@ -47,45 +40,21 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <ConvergenceWrapper>
-          <h2 className="font-serif text-5xl md:text-7xl text-bone mb-16 text-center md:text-left">
+          <h2 className="font-serif text-5xl md:text-7xl text-bone mb-10 text-center md:text-left">
             THE <span className="text-magma italic">GALLERY</span>
           </h2>
         </ConvergenceWrapper>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
-          {/* Left Panel - Pattern: "*" [prev] <preview> [next] "*" */}
-          <ConvergenceWrapper className="lg:col-span-9 flex items-end justify-center gap-4 md:gap-8" staggerIndex={1}>
-            {/* Left Decorative Asterisk (Bottom Aligned) */}
-            <div className="hidden sm:block text-magma/40 text-4xl md:text-5xl font-serif select-none mb-1">
-              "*"
-            </div>
-
-            {/* Previous Tiny Image (*) */}
-            <button
-              onClick={() => prevImage && handleNavigate('prev')}
-              disabled={!prevImage}
-              className={`w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 mb-1 ${
-                prevImage 
-                  ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-70 hover:opacity-100 scale-90 hover:scale-100' 
-                  : 'bg-white/5 border border-white/5 opacity-10 cursor-default'
-              }`}
-            >
-              {prevImage && (
-                <img 
-                  src={prevImage.src} 
-                  alt="Previous"
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </button>
-
-            {/* Main Preview (The anchor) */}
-            <div className="flex-1 max-w-[700px] relative">
-              <div className="aspect-[16/10] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+          {/* Left Panel - Portrait Preview Only */}
+          <ConvergenceWrapper className="lg:col-span-7 flex justify-center" staggerIndex={1}>
+            <div className="w-full max-w-[480px] relative">
+              <div className="aspect-[3/4] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
                 <img
+                  key={selectedImage.src}
                   src={selectedImage.src}
                   alt={selectedImage.title}
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-all duration-1000 animate-in fade-in zoom-in-95"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
 
@@ -93,47 +62,23 @@ const Gallery = () => {
                 <button
                   onClick={() => handleNavigate('prev')}
                   disabled={selectedIndex === 0}
-                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden"
+                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
                 >
                   <ChevronLeft className="w-6 h-6 text-bone" />
                 </button>
                 <button
                   onClick={() => handleNavigate('next')}
                   disabled={selectedIndex === images.length - 1}
-                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden"
+                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
                 >
                   <ChevronRight className="w-6 h-6 text-bone" />
                 </button>
               </div>
             </div>
-
-            {/* Next Tiny Image (*) */}
-            <button
-              onClick={() => nextImage && handleNavigate('next')}
-              disabled={!nextImage}
-              className={`w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 mb-1 ${
-                nextImage 
-                  ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-70 hover:opacity-100 scale-90 hover:scale-100' 
-                  : 'bg-white/5 border border-white/5 opacity-10 cursor-default'
-              }`}
-            >
-              {nextImage && (
-                <img 
-                  src={nextImage.src} 
-                  alt="Next"
-                  className="w-full h-full object-cover"
-                />
-              )}
-            </button>
-
-            {/* Right Decorative Asterisk (Bottom Aligned) */}
-            <div className="hidden sm:block text-magma/40 text-4xl md:text-5xl font-serif select-none mb-1">
-              "*"
-            </div>
           </ConvergenceWrapper>
 
           {/* Right Panel - Grid + Description */}
-          <ConvergenceWrapper className="lg:col-span-3 flex flex-col gap-6" staggerIndex={2}>
+          <ConvergenceWrapper className="lg:col-span-5 flex flex-col gap-6" staggerIndex={2}>
             {/* Grid Container */}
             <div className="relative">
               <div 
