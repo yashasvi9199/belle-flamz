@@ -1,23 +1,19 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 interface SectionScrollState {
-  progress: number;
   isActive: boolean;
   isLeaving: boolean;
   isIncoming: boolean;
-  blurAmount: number;
-  overlapY: number;
+  translateY: number;
 }
 
 export const useSectionScroll = (sectionIndex: number) => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<SectionScrollState>({
-    progress: 0,
     isActive: sectionIndex === 0,
     isLeaving: false,
     isIncoming: false,
-    blurAmount: 0,
-    overlapY: 0,
+    translateY: sectionIndex > 0 ? window.innerHeight : 0,
   });
 
   const handleScroll = useCallback(() => {
@@ -26,40 +22,43 @@ export const useSectionScroll = (sectionIndex: number) => {
     const rect = sectionRef.current.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     
-    // Position of section top relative to bottom of viewport
-    // 1 = top of section is at bottom of screen
-    // 0 = top of section is at top of screen
-    const enterProgress = 1 - (rect.top / windowHeight);
+    // Section visibility states
+    const isInViewport = rect.top < windowHeight && rect.bottom > 0;
+    const isAboveViewport = rect.bottom <= 0;
+    const isBelowViewport = rect.top >= windowHeight;
     
-    // Position of section bottom relative to top of viewport
-    // 0 = bottom of section is at bottom of screen
-    // 1 = bottom of section is at top of screen
-    const leaveProgress = Math.abs(Math.min(0, rect.top)) / rect.height;
-
-    const isActive = rect.top < windowHeight && rect.bottom > 0;
-    const isIncoming = rect.top > 0 && rect.top < windowHeight;
+    // Is active if any part is visible
+    const isActive = isInViewport;
+    
+    // Leaving: section top has scrolled above viewport top, but bottom still visible
     const isLeaving = rect.top < 0 && rect.bottom > 0;
+    
+    // Incoming: section is entering from bottom
+    const isIncoming = rect.top > 0 && rect.top < windowHeight;
 
-    // Blur current section as it leaves (next one overlaps)
-    let blurAmount = 0;
-    if (isLeaving) {
-      blurAmount = Math.min(8, leaveProgress * 20); // 0 to 8px blur
-    }
-
-    // Slide incoming section from bottom
-    let overlapY = 0;
-    if (isIncoming && sectionIndex > 0) {
-      // Starts at 100% of window height and goes to 0
-      overlapY = Math.max(0, (1 - enterProgress) * windowHeight);
+    // Calculate translateY for incoming sections (curtain sliding up)
+    // When scrolling down: new section slides up from bottom to cover current
+    // When scrolling up: current section slides down like inverse curtain
+    let translateY = 0;
+    
+    if (sectionIndex > 0) {
+      if (isBelowViewport) {
+        // Section hasn't started entering yet
+        translateY = windowHeight;
+      } else if (isIncoming) {
+        // Section is sliding in - translate based on how far it's entered
+        translateY = rect.top;
+      } else if (isLeaving || isAboveViewport) {
+        // Section is fully in or has passed - no translate needed
+        translateY = 0;
+      }
     }
 
     setState({
-      progress: enterProgress,
       isActive,
       isLeaving,
       isIncoming,
-      blurAmount,
-      overlapY,
+      translateY,
     });
   }, [sectionIndex]);
 

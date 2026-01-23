@@ -12,35 +12,28 @@ const SectionWrapper = ({
   sectionIndex,
   totalSections,
 }: SectionWrapperProps) => {
-  const { ref, isLeaving, blurAmount, overlapY, isActive } = useSectionScroll(sectionIndex);
+  const { ref, isLeaving, translateY, isActive, isIncoming } = useSectionScroll(sectionIndex);
 
-  // The curtain effect:
-  // Current section blurs and stays semi-fixed
-  // Next section slides UP over it.
-  
+  // Curtain scroll effect:
+  // - Scroll down: current section stays sticky, new section slides up from bottom to cover it
+  // - Scroll up: current section slides down (inverse curtain), revealing sticky previous section
+
   const wrapperStyle: CSSProperties = {
-    position: 'relative',
+    position: isLeaving ? 'fixed' : 'relative',
+    top: isLeaving ? 0 : 'auto',
+    left: isLeaving ? 0 : 'auto',
     zIndex: sectionIndex + 1, // Higher sections sit on top of lower ones
     width: '100%',
     minHeight: '100vh',
     backgroundColor: '#312B1E', // Match obsidian to prevent flashes
-    willChange: 'transform, filter',
-    // Only apply overlap transform to incoming sections
-    transform: overlapY > 0 ? `translateY(${overlapY}px)` : 'none',
-    filter: blurAmount > 0 ? `blur(${blurAmount}px)` : 'none',
-    opacity: isLeaving ? Math.max(0.8, 1 - (blurAmount / 40)) : 1,
-    // When a section is leaving, we make it "sticky" so the next one can slide over it
-    ...(isLeaving && {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      pointerEvents: 'none',
-    }),
-    // Ensure active section is visible
-    display: isActive ? 'block' : sectionIndex === 0 ? 'block' : 'none',
+    willChange: 'transform',
+    // Apply translateY for incoming sections to create slide-up effect
+    transform: translateY > 0 ? `translateY(${translateY}px)` : 'none',
+    // Disable pointer events on leaving section so incoming section is interactive
+    pointerEvents: isLeaving ? 'none' : 'auto',
   };
 
-  // Buffer to maintain scroll height while a section is fixed
+  // Container maintains scroll height when section goes fixed
   const containerStyle: CSSProperties = {
     height: '100vh',
     position: 'relative',
