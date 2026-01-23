@@ -26,17 +26,19 @@ const CandleDesigner = () => {
   };
 
   return (
-    <section id="designer" className="min-h-screen py-32 px-4 md:px-12 bg-[#2a2419] relative overflow-hidden">
+    <section id="designer" className="min-h-screen py-32 px-4 md:px-12 bg-[#2a2419] border-t border-white/5 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <ConvergenceWrapper className="mb-24">
-          <h2 className="font-serif text-5xl md:text-6xl text-bone">
-            ATELIER <span className="text-magma">CUSTOM</span>
-          </h2>
-          <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
-        </ConvergenceWrapper>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+          <ConvergenceWrapper>
+            <h2 className="font-serif text-5xl md:text-6xl text-bone">
+              ATELIER <span className="text-magma">CUSTOM</span>
+            </h2>
+            <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
+          </ConvergenceWrapper>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <ConvergenceWrapper className="space-y-8" staggerIndex={1}>

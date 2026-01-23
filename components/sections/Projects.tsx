@@ -36,14 +36,16 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="min-h-screen py-24 px-4 md:px-12 bg-obsidian relative">
+    <section id="gallery" className="min-h-screen py-24 px-4 md:px-12 bg-obsidian border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <ConvergenceWrapper className="mb-24">
-          <h2 className="font-serif text-5xl md:text-7xl text-bone text-center md:text-left">
-            THE <span className="text-magma italic">GALLERY</span>
-          </h2>
-        </ConvergenceWrapper>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+          <ConvergenceWrapper>
+            <h2 className="font-serif text-5xl md:text-7xl text-bone">
+              THE <span className="text-magma italic">GALLERY</span>
+            </h2>
+          </ConvergenceWrapper>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Panel - Portrait Preview Only */}

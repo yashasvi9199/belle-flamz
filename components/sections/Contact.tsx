@@ -5,12 +5,14 @@ import { MagneticWrapper } from '../MagneticWrapper';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 px-4 md:px-12 bg-obsidian">
+    <section id="contact" className="py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
-            <ConvergenceWrapper className="mb-24">
-                <h2 className="font-serif text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
-                <p className="font-sans text-taupe mt-4">For bespoke commissions or wholesale inquiries.</p>
-            </ConvergenceWrapper>
+            <div className="flex flex-col justify-between items-center mb-24">
+              <ConvergenceWrapper>
+                  <h2 className="font-serif text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
+                  <p className="font-sans text-taupe mt-4">For bespoke commissions or wholesale inquiries.</p>
+              </ConvergenceWrapper>
+            </div>
 
             <ConvergenceWrapper delay={0.2}>
                 <form className="space-y-6 text-left bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 backdrop-blur-sm">

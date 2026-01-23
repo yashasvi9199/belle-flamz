@@ -4,7 +4,7 @@
 
 - feature: section content parallax scroll - heading moves with scroll as section is being covered
 - fix: heading now visible first when scrolling both up and down into a section
-- change: unified section heading spacing (mb-24) across Gallery, Designer, and Contact to match Inventory
+- change: unified section structure across all sections to match Inventory (wrapper div with mb-24, border-t separator, items-end alignment)
 
 ## 1.2.7
 
