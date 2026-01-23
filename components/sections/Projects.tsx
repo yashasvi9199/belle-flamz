@@ -1,6 +1,7 @@
 import React, { memo, useState, useMemo, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import galleryData from '../../src/data/gallery.json';
+import { ConvergenceWrapper } from '../ConvergenceWrapper';
 
 interface GalleryImage {
   id: string;
@@ -55,13 +56,15 @@ const Gallery = () => {
     <section id="gallery" className="min-h-screen py-24 px-4 md:px-12 bg-obsidian relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <h2 className="font-serif text-5xl md:text-7xl text-bone mb-16 text-center md:text-left">
-          THE <span className="text-magma italic">GALLERY</span>
-        </h2>
+        <ConvergenceWrapper>
+          <h2 className="font-serif text-5xl md:text-7xl text-bone mb-16 text-center md:text-left">
+            THE <span className="text-magma italic">GALLERY</span>
+          </h2>
+        </ConvergenceWrapper>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Left Panel - Preview with Navigation */}
-          <div className="lg:col-span-3 flex items-center gap-4">
+          <ConvergenceWrapper className="lg:col-span-3 flex items-center gap-4" staggerIndex={1}>
             {/* Previous Images Stack */}
             <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
               {prevImages.map((img, i) => (
@@ -146,10 +149,10 @@ const Gallery = () => {
                 </button>
               ))}
             </div>
-          </div>
+          </ConvergenceWrapper>
 
           {/* Right Panel - Grid + Description */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <ConvergenceWrapper className="lg:col-span-2 flex flex-col gap-6" staggerIndex={2}>
             {/* Grid Container */}
             <div className="relative">
               <div 
@@ -197,7 +200,7 @@ const Gallery = () => {
                 {selectedImage.description}
               </p>
             </div>
-          </div>
+          </ConvergenceWrapper>
         </div>
       </div>
     </section>

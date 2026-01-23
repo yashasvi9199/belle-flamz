@@ -2,8 +2,9 @@ import React, { memo } from 'react';
 import { Search } from 'lucide-react';
 import { useInventoryLogic } from '../../hooks/useInventoryLogic';
 import { Fragrance } from '../../types';
+import { ConvergenceWrapper } from '../ConvergenceWrapper';
 
-const InventoryItemCard = ({ fragrance }: { fragrance: Fragrance }) => (
+const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
   <div className="group relative p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-xl transition-colors duration-300">
     <div className="flex justify-between items-start mb-4">
       <h3 className="font-serif text-2xl text-bone">{fragrance.name}</h3>
@@ -42,22 +43,25 @@ const InventoryItemCard = ({ fragrance }: { fragrance: Fragrance }) => (
       </button>
     </div>
   </div>
-);
+));
+
+InventoryItemCard.displayName = 'InventoryItemCard';
 
 const Inventory = () => {
   const { searchTerm, filteredFragrances, handleSearchChange } = useInventoryLogic();
+  const showScrollbar = filteredFragrances.length > 6;
 
   return (
     <section id="inventory" className="min-h-screen py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24">
-          <div>
+          <ConvergenceWrapper>
             <h2 className="font-serif text-5xl md:text-7xl text-bone">
               FRAGRANCE <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe">ARCHIVE</span>
             </h2>
-          </div>
+          </ConvergenceWrapper>
 
-          <div className="w-full md:w-auto mt-8 md:mt-0">
+          <ConvergenceWrapper className="w-full md:w-auto mt-8 md:mt-0" staggerIndex={1}>
             <div className="flex gap-4 items-center bg-white/5 p-2 rounded-lg border border-white/10">
               <Search className="w-5 h-5 text-taupe ml-2" />
               <input 
@@ -68,18 +72,28 @@ const Inventory = () => {
                 className="bg-transparent border-none outline-none text-bone placeholder-gray-600 font-sans w-full md:w-64"
               />
             </div>
-          </div>
+          </ConvergenceWrapper>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredFragrances.map((fragrance) => (
-            <InventoryItemCard key={fragrance.id} fragrance={fragrance} />
-          ))}
+        <div className="relative">
+          <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ${
+            showScrollbar ? 'max-h-[70vh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-magma scrollbar-track-white/5' : ''
+          }`}>
+            {filteredFragrances.map((fragrance, index) => (
+              <ConvergenceWrapper key={fragrance.id} staggerIndex={index}>
+                <InventoryItemCard fragrance={fragrance} />
+              </ConvergenceWrapper>
+            ))}
+            
+            {filteredFragrances.length === 0 && (
+              <div className="col-span-full py-24 text-center">
+                <p className="font-serif text-2xl text-taupe italic">No essences found matching your frequency.</p>
+              </div>
+            )}
+          </div>
           
-          {filteredFragrances.length === 0 && (
-            <div className="col-span-full py-24 text-center">
-              <p className="font-serif text-2xl text-taupe italic">No essences found matching your frequency.</p>
-            </div>
+          {showScrollbar && (
+            <div className="absolute bottom-0 left-0 right-4 h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
           )}
         </div>
       </div>

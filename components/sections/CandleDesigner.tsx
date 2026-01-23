@@ -2,6 +2,7 @@ import React, { memo, useRef } from 'react';
 import { Upload, Image } from 'lucide-react';
 import { useCandleDesignerLogic } from '../../hooks/useCandleDesignerLogic';
 import fragranceData from '../../src/data/fragrance.json';
+import { ConvergenceWrapper } from '../ConvergenceWrapper';
 
 const CandleDesigner = () => {
   const { design, updateField } = useCandleDesignerLogic();
@@ -30,7 +31,7 @@ const CandleDesigner = () => {
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
-        <div className="space-y-12">
+        <ConvergenceWrapper className="space-y-12">
           <div>
             <h2 className="font-serif text-5xl md:text-6xl text-bone">
               ATELIER <span className="text-magma">CUSTOM</span>
@@ -138,10 +139,10 @@ const CandleDesigner = () => {
               </div>
             </div>
           </div>
-        </div>
+        </ConvergenceWrapper>
 
         {/* Preview Panel */}
-        <div className="flex flex-col justify-center items-center">
+        <ConvergenceWrapper className="flex flex-col justify-center items-center" staggerIndex={1}>
           <div className="w-full aspect-square relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl flex items-center justify-center p-12">
             {/* Abstract Visualizer */}
             <div 
@@ -174,7 +175,7 @@ const CandleDesigner = () => {
               )}
             </div>
           </div>
-        </div>
+        </ConvergenceWrapper>
       </div>
     </section>
   );
