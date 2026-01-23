@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.2.1
+
+- feature: staggered component reveals (pseudo-rendering) added to all site sections
+- feature: inventory grid now supports scrollable layout with bottom fade effect
+- change: refined curtain scroll animation for smoother section overlap and blur
+- fix: resolved array mutation bug in fragrance sorting logic
+
 ## 1.2.0
 
 - feature: Hero section repositioned with left-aligned branding and business tagline
