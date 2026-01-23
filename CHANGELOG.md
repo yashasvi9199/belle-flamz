@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.9
+
+- fix: corrected import path in ScrollHeading.tsx that was causing crash
+
 ## 1.2.8
 
 - feature: implemented scroll-linked heading synchronization across all sections

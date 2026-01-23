@@ -1,6 +1,6 @@
 import React, { useContext, memo } from 'react';
 import { motion, useTransform } from 'framer-motion';
-import { SectionContext } from '../SectionWrapper';
+import { SectionContext } from './SectionWrapper';
 
 interface ScrollHeadingProps {
   children: React.ReactNode;
