@@ -1,5 +1,12 @@
-import React, { memo, ReactNode } from 'react';
+import React, { memo, ReactNode, useRef, createContext } from 'react';
 import { useSectionScroll } from '../hooks/useSectionScroll';
+import { motion, useScroll, useTransform } from 'framer-motion';
+
+export const SectionContext = createContext<{ 
+  scrollYProgress: any,
+  sectionIndex: number,
+  totalSections: number
+} | null>(null);
 
 interface SectionWrapperProps {
   children: ReactNode;
@@ -12,18 +19,20 @@ const SectionWrapper = ({
   sectionIndex,
   totalSections,
 }: SectionWrapperProps) => {
-  const { ref } = useSectionScroll(sectionIndex);
-
-  // Pure CSS curtain scroll effect using sticky positioning
-  // Each section sticks to top while scrolling, creating the "cover" effect
-  // Higher z-index for later sections ensures proper stacking order
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { ref: sectionRef } = useSectionScroll(sectionIndex);
   
+  // Track scroll relative to this section's container
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
   return (
     <div 
+      ref={containerRef}
       className="section-container"
       style={{
-        // Add buffer by making container taller than 100vh
-        // Last section doesn't need buffer as nothing follows it
         height: sectionIndex === totalSections - 1 ? '100vh' : '140vh',
         position: 'sticky',
         top: 0,
@@ -31,7 +40,7 @@ const SectionWrapper = ({
       }}
     >
       <div 
-        ref={ref}
+        ref={sectionRef}
         className="section-content"
         style={{
           width: '100%',
@@ -41,7 +50,9 @@ const SectionWrapper = ({
           overflow: 'hidden',
         }}
       >
-        {children}
+        <SectionContext.Provider value={{ scrollYProgress, sectionIndex, totalSections }}>
+          {children}
+        </SectionContext.Provider>
       </div>
     </div>
   );

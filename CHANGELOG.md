@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.2.8
+
+- feature: implemented scroll-linked heading synchronization across all sections
+- change: added SectionContext to track individual section scroll progress
+- change: replaced static headers with dynamic ScrollHeading component for parallax-like entrance/exit
+- fix: headings now reach final position by 40% visibility for a snappier feel
+
 ## 1.2.7
 
 - change: optimized navigation icon animations to be snappier using spring transitions

@@ -3,6 +3,7 @@ import { Upload, Image } from 'lucide-react';
 import { useCandleDesignerLogic } from '../../hooks/useCandleDesignerLogic';
 import fragranceData from '../../src/data/fragrance.json';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
+import ScrollHeading from '../ScrollHeading';
 
 const CandleDesigner = () => {
   const { design, updateField } = useCandleDesignerLogic();
@@ -32,12 +33,14 @@ const CandleDesigner = () => {
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
         <ConvergenceWrapper className="space-y-12">
-          <div>
-            <h2 className="font-serif text-5xl md:text-6xl text-bone">
-              ATELIER <span className="text-magma">CUSTOM</span>
-            </h2>
-            <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
-          </div>
+          <ScrollHeading>
+            <div>
+              <h2 className="font-serif text-5xl md:text-6xl text-bone">
+                ATELIER <span className="text-magma">CUSTOM</span>
+              </h2>
+              <p className="mt-4 font-sans text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
+            </div>
+          </ScrollHeading>
 
           <div className="space-y-8">
             {/* Geometry Selection */}
