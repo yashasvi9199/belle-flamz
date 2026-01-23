@@ -9,7 +9,7 @@ export const useInventoryLogic = () => {
   const filteredFragrances = useMemo(() => {
     const fragrances = fragranceData.fragrances as Fragrance[];
     
-    return fragrances
+    return [...fragrances]
       .sort((a, b) => b.popularity - a.popularity)
       .filter((fragrance: Fragrance) => {
         const matchesSearch = fragrance.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
