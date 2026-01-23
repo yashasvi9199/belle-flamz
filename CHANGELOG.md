@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.4
+
+- fix: Gallery images not loading (replaced placeholders with img tags)
+
 ## 1.2.3
 
 - fix: removed overflow-hidden on main container to restore CSS sticky scroll functionality

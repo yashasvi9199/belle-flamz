@@ -79,9 +79,11 @@ const Gallery = () => {
                   }`}
                 >
                   {img && (
-                    <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                      <span className="text-xs text-bone/50 font-sans">{i + 1}</span>
-                    </div>
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      className="w-full h-full object-cover"
+                    />
                   )}
                 </button>
               ))}
@@ -90,25 +92,12 @@ const Gallery = () => {
             {/* Main Preview */}
             <div className="flex-1 relative">
               <div className="aspect-[4/3] bg-white/5 rounded-xl overflow-hidden relative group">
-                {/* Placeholder for image - gradient background */}
-                <div 
-                  className="absolute inset-0 bg-gradient-to-br from-obsidian via-white/5 to-obsidian transition-all duration-500"
-                  style={{ 
-                    backgroundImage: `linear-gradient(135deg, rgba(252,92,2,0.1) 0%, rgba(49,43,30,0.8) 50%, rgba(226,206,174,0.05) 100%)`
-                  }}
+                <img
+                  src={selectedImage.src}
+                  alt={selectedImage.title}
+                  className="w-full h-full object-cover transition-transform duration-700"
                 />
-                
-                {/* Image would go here */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <h3 className="font-serif text-3xl md:text-4xl text-bone italic mb-2">
-                      {selectedImage.title}
-                    </h3>
-                    <span className="text-magma text-sm font-sans uppercase tracking-widest">
-                      Preview
-                    </span>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-60" />
 
                 {/* Navigation Arrows */}
                 <button
@@ -142,9 +131,11 @@ const Gallery = () => {
                   }`}
                 >
                   {img && (
-                    <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                      <span className="text-xs text-bone/50 font-sans">{i + 1}</span>
-                    </div>
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      className="w-full h-full object-cover"
+                    />
                   )}
                 </button>
               ))}
@@ -177,10 +168,11 @@ const Gallery = () => {
                         : 'bg-white/5 border border-white/10 hover:border-white/30'
                     }`}
                   >
-                    {/* Placeholder tile */}
-                    <div className="w-full h-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                      <span className="text-xs text-bone/30 font-sans">{index + 1}</span>
-                    </div>
+                    <img 
+                      src={img.src} 
+                      alt={img.title}
+                      className="w-full h-full object-cover"
+                    />
                   </button>
                 ))}
               </div>
