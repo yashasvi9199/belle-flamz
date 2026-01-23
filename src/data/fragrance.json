@@ -1,0 +1,67 @@
+{
+  "fragrances": [
+    {
+      "id": "f1",
+      "name": "Midnight Oud",
+      "notes": ["Oud", "Rose", "Amber"],
+      "intensity": 9,
+      "price": 45,
+      "inStock": true,
+      "popularity": 95
+    },
+    {
+      "id": "f2",
+      "name": "Desert Sage",
+      "notes": ["Sage", "Sea Salt", "Driftwood"],
+      "intensity": 5,
+      "price": 35,
+      "inStock": true,
+      "popularity": 78
+    },
+    {
+      "id": "f3",
+      "name": "Spiced Pumpkin",
+      "notes": ["Cinnamon", "Nutmeg", "Pumpkin"],
+      "intensity": 7,
+      "price": 38,
+      "inStock": false,
+      "popularity": 82
+    },
+    {
+      "id": "f4",
+      "name": "Vanilla Bean",
+      "notes": ["Vanilla", "Cream", "Musk"],
+      "intensity": 4,
+      "price": 30,
+      "inStock": true,
+      "popularity": 88
+    },
+    {
+      "id": "f5",
+      "name": "Smoked Leather",
+      "notes": ["Leather", "Tobacco", "Cedar"],
+      "intensity": 8,
+      "price": 50,
+      "inStock": true,
+      "popularity": 72
+    },
+    {
+      "id": "f6",
+      "name": "Fresh Linen",
+      "notes": ["Cotton", "Lavender", "Breeze"],
+      "intensity": 3,
+      "price": 28,
+      "inStock": true,
+      "popularity": 65
+    },
+    {
+      "id": "f7",
+      "name": "Tropical Paradise",
+      "notes": ["Coconut", "Mango", "Hibiscus"],
+      "intensity": 6,
+      "price": 32,
+      "inStock": true,
+      "popularity": 70
+    }
+  ]
+}

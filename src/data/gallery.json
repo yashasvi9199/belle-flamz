@@ -1,0 +1,52 @@
+{
+  "images": [
+    {
+      "id": "g1",
+      "src": "/gallery/candle-1.jpg",
+      "title": "Midnight Ember",
+      "description": "Hand-poured obsidian wax with hints of cedar and sandalwood. A testament to dark elegance."
+    },
+    {
+      "id": "g2",
+      "src": "/gallery/candle-2.jpg",
+      "title": "Golden Hour",
+      "description": "Translucent amber resin capturing the warmth of sunset. Notes of honey and bergamot."
+    },
+    {
+      "id": "g3",
+      "src": "/gallery/candle-3.jpg",
+      "title": "Ephemeral Bloom",
+      "description": "Delicate floral sculpture that transforms as it burns. Rose, jasmine, and white tea."
+    },
+    {
+      "id": "g4",
+      "src": "/gallery/candle-4.jpg",
+      "title": "Obsidian Monolith",
+      "description": "Pure black wax pillar with hidden depths of smoky vetiver and dark oud."
+    },
+    {
+      "id": "g5",
+      "src": "/gallery/candle-5.jpg",
+      "title": "Desert Mirage",
+      "description": "Sand-toned layers of sage, sea salt, and driftwood. Minimalist vessel design."
+    },
+    {
+      "id": "g6",
+      "src": "/gallery/candle-6.jpg",
+      "title": "Crimson Ritual",
+      "description": "Deep red wax with notes of spiced wine, cinnamon, and dried fruits."
+    },
+    {
+      "id": "g7",
+      "src": "/gallery/candle-7.jpg",
+      "title": "Lunar Phase",
+      "description": "Cool silver tones with eucalyptus, mint, and moonflower essence."
+    },
+    {
+      "id": "g8",
+      "src": "/gallery/candle-8.jpg",
+      "title": "Artisan Reserve",
+      "description": "Limited edition hand-carved design with custom fragrance blend."
+    }
+  ]
+}
