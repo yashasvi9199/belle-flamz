@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.2
+
+- fix: scroll animation broken - sections not visible after hero
+- removed: blur effect on scroll completely
+- change: simplified curtain scroll to pure slide-up/slide-down behavior
+
 ## 1.2.1
 
 - feature: staggered component reveals (pseudo-rendering) added to all site sections
