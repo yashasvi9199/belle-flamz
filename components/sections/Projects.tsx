@@ -36,7 +36,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="min-h-screen py-24 px-4 md:px-12 bg-obsidian border-t border-white/5 relative">
+    <section id="gallery" className="min-h-screen py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-24">

@@ -2,9 +2,9 @@
 
 ## 1.2.8
 
-- feature: section content parallax scroll - heading moves with scroll as section is being covered
-- fix: heading now visible first when scrolling both up and down into a section
-- change: unified section structure across all sections to match Inventory (wrapper div with mb-24, border-t separator, items-end alignment)
+- fix: implemented perfectly synchronized section push-out effect (parallax) for all sections
+- change: unified section padding (py-32) and structural alignment (items-end) to match Inventory's visual behavior
+- fix: transition logic now uses getBoundingClientRect for reliable sticky position tracking across all viewports
 
 ## 1.2.7
 
