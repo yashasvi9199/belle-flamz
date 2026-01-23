@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.5
+
+- fix: added scroll buffer between sections to prevent premature transitions
+- change: increased SectionWrapper container height to 140vh to provide 40vh of stay-time before next section enters
+
 ## 1.2.4
 
 - change: Reduced scale of Gallery preview and grid thumbnails for better viewport fit

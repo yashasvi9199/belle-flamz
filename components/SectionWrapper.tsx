@@ -22,7 +22,9 @@ const SectionWrapper = ({
     <div 
       className="section-container"
       style={{
-        height: '100vh',
+        // Add buffer by making container taller than 100vh
+        // Last section doesn't need buffer as nothing follows it
+        height: sectionIndex === totalSections - 1 ? '100vh' : '140vh',
         position: 'sticky',
         top: 0,
         zIndex: sectionIndex + 1,
