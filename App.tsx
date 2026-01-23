@@ -57,13 +57,14 @@ function App() {
             href={`#${id}`}
             whileHover={{ scale: 1.2, color: '#FC5C02' }}
             whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             className="group relative flex items-center justify-center p-2 rounded-full bg-white/5 border border-white/10 hover:border-magma/50 transition-colors duration-300 text-white/40"
             aria-label={`Scroll to ${label}`}
           >
             <Icon size={18} strokeWidth={1.5} />
             
             {/* Tooltip */}
-            <span className="absolute right-full mr-4 px-2 py-1 rounded bg-obsidian border border-white/10 text-[10px] uppercase tracking-widest text-taupe opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            <span className="absolute right-full mr-4 px-2 py-1 rounded bg-obsidian border border-white/10 text-[10px] uppercase tracking-widest text-taupe opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out whitespace-nowrap pointer-events-none translate-x-1 group-hover:translate-x-0">
               {label}
             </span>
             

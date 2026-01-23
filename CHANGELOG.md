@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.7
+
+- change: optimized navigation icon animations to be snappier using spring transitions
+- change: refined tooltip reveal with slide-in effect and faster duration
+
 ## 1.2.6
 
 - feature: replaced navigation dots with animated Lucide icons (Home, Gallery, Design, Inventory, User)
