@@ -5,33 +5,52 @@ interface SectionWrapperProps {
   children: ReactNode;
   sectionIndex: number;
   totalSections: number;
-  className?: string;
 }
 
 const SectionWrapper = ({
   children,
   sectionIndex,
   totalSections,
-  className = '',
 }: SectionWrapperProps) => {
-  const { ref, isLeaving, blurAmount, translateY } = useSectionScroll({
-    sectionIndex,
-    totalSections,
-  });
+  const { ref, isLeaving, blurAmount, overlapY, isActive } = useSectionScroll(sectionIndex);
 
+  // The curtain effect:
+  // Current section blurs and stays semi-fixed
+  // Next section slides UP over it.
+  
   const wrapperStyle: CSSProperties = {
     position: 'relative',
-    zIndex: totalSections - sectionIndex, // Higher sections have lower z-index
+    zIndex: sectionIndex + 1, // Higher sections sit on top of lower ones
+    width: '100%',
+    minHeight: '100vh',
+    backgroundColor: '#312B1E', // Match obsidian to prevent flashes
     willChange: 'transform, filter',
-    transform: `translateY(${translateY}px)`,
+    // Only apply overlap transform to incoming sections
+    transform: overlapY > 0 ? `translateY(${overlapY}px)` : 'none',
     filter: blurAmount > 0 ? `blur(${blurAmount}px)` : 'none',
     opacity: isLeaving ? Math.max(0.8, 1 - (blurAmount / 40)) : 1,
-    transition: 'filter 0.1s ease-out, opacity 0.1s ease-out',
+    // When a section is leaving, we make it "sticky" so the next one can slide over it
+    ...(isLeaving && {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      pointerEvents: 'none',
+    }),
+    // Ensure active section is visible
+    display: isActive ? 'block' : sectionIndex === 0 ? 'block' : 'none',
+  };
+
+  // Buffer to maintain scroll height while a section is fixed
+  const containerStyle: CSSProperties = {
+    height: '100vh',
+    position: 'relative',
   };
 
   return (
-    <div ref={ref} style={wrapperStyle} className={className}>
-      {children}
+    <div style={containerStyle}>
+      <div ref={ref} style={wrapperStyle}>
+        {children}
+      </div>
     </div>
   );
 };
