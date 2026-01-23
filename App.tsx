@@ -10,7 +10,7 @@ const TOTAL_SECTIONS = 5;
 
 function App() {
   return (
-    <main className="bg-obsidian w-full overflow-hidden relative selection:bg-magma selection:text-white">
+    <main className="bg-obsidian w-full relative selection:bg-magma selection:text-white">
       {/* Global Grain Overlay for texture */}
       <div 
         className="fixed inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay" 
