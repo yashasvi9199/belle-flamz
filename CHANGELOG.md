@@ -1,10 +1,15 @@
 # CHANGELOG
 
+## 1.2.3
+
+- fix: removed overflow-hidden on main container to restore CSS sticky scroll functionality
+
 ## 1.2.2
 
 - fix: scroll animation broken - sections not visible after hero
+- fix: jittering caused by JS position switching during scroll
 - removed: blur effect on scroll completely
-- change: simplified curtain scroll to pure slide-up/slide-down behavior
+- change: migrated to pure CSS sticky positioning for smooth curtain effect
 
 ## 1.2.1
 
