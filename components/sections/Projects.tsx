@@ -48,7 +48,7 @@ const Gallery = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Panel - Portrait Preview Only */}
           <ConvergenceWrapper className="lg:col-span-7 flex justify-center" staggerIndex={1}>
-            <div className="w-full max-w-[480px] relative">
+            <div className="w-full max-w-[420px] relative">
               <div className="aspect-[3/4] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
                 <img
                   key={selectedImage.src}
@@ -83,7 +83,7 @@ const Gallery = () => {
             <div className="relative">
               <div 
                 ref={gridRef}
-                className={`grid grid-cols-3 gap-3 ${
+                className={`grid grid-cols-4 gap-2 ${
                   showScrollbar 
                     ? 'max-h-[280px] overflow-y-auto pr-3 scrollbar-thin scrollbar-thumb-magma scrollbar-track-white/5' 
                     : ''
