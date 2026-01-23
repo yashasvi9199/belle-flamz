@@ -1,12 +1,11 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
-import ScrollHeading from '../ScrollHeading';
 
 const Hero = () => {
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-obsidian text-bone">
-      {/* ... existing layers ... */}
+      {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
           src="/hero-candles.png" 
@@ -14,8 +13,10 @@ const Hero = () => {
           className="w-full h-full object-cover opacity-40 scale-105"
           style={{ willChange: 'transform' }}
         />
+        {/* Cinematic Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
         
+        {/* Animated Flame Glow - Optimized */}
         <motion.div 
           animate={{ 
             opacity: [0.3, 0.5, 0.3],
@@ -31,6 +32,7 @@ const Hero = () => {
         />
       </div>
 
+      {/* Floating Ember Particles - Reduced count for performance */}
       <div className="absolute inset-0 pointer-events-none z-10">
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -56,21 +58,26 @@ const Hero = () => {
         ))}
       </div>
 
+      {/* Main Content - Left Aligned */}
       <div className="z-20 px-8 md:px-16 lg:px-24 max-w-4xl">
-        <ScrollHeading>
-          <div className="mb-8">
-            <div className="flex items-center gap-3 mb-4">
-              <Flame className="w-5 h-5 text-magma" />
-              <span className="font-sans text-magma text-sm tracking-[0.5em] uppercase">Est. 2024</span>
-            </div>
-            
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-bone via-bone to-taupe/60">
-              BELLE
-              <br />
-              <span className="text-magma">FLAMZ</span>
-            </h1>
+        {/* Brand Label */}
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="mb-8"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Flame className="w-5 h-5 text-magma" />
+            <span className="font-sans text-magma text-sm tracking-[0.5em] uppercase">Est. 2024</span>
           </div>
-        </ScrollHeading>
+          
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-bone via-bone to-taupe/60">
+            BELLE
+            <br />
+            <span className="text-magma">FLAMZ</span>
+          </h1>
+        </motion.div>
 
         {/* Business Tagline */}
         <motion.div

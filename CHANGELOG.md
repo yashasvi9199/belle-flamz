@@ -1,15 +1,9 @@
 # CHANGELOG
 
-## 1.2.9
-
-- fix: corrected import path in ScrollHeading.tsx that was causing crash
-
 ## 1.2.8
 
-- feature: implemented scroll-linked heading synchronization across all sections
-- change: added SectionContext to track individual section scroll progress
-- change: replaced static headers with dynamic ScrollHeading component for parallax-like entrance/exit
-- fix: headings now reach final position by 40% visibility for a snappier feel
+- feature: section content parallax scroll - heading moves with scroll as section is being covered
+- fix: heading now visible first when scrolling both up and down into a section
 
 ## 1.2.7
 

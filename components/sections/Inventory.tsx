@@ -3,7 +3,6 @@ import { Search } from 'lucide-react';
 import { useInventoryLogic } from '../../hooks/useInventoryLogic';
 import { Fragrance } from '../../types';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
-import ScrollHeading from '../ScrollHeading';
 
 const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
   <div className="group relative p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-xl transition-colors duration-300">
@@ -56,11 +55,11 @@ const Inventory = () => {
     <section id="inventory" className="min-h-screen py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24">
-          <ScrollHeading>
+          <ConvergenceWrapper>
             <h2 className="font-serif text-5xl md:text-7xl text-bone">
               FRAGRANCE <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe">ARCHIVE</span>
             </h2>
-          </ScrollHeading>
+          </ConvergenceWrapper>
 
           <ConvergenceWrapper className="w-full md:w-auto mt-8 md:mt-0" staggerIndex={1}>
             <div className="flex gap-4 items-center bg-white/5 p-2 rounded-lg border border-white/10">

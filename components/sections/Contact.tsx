@@ -2,16 +2,15 @@ import React, { memo } from 'react';
 import { Send } from 'lucide-react';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
 import { MagneticWrapper } from '../MagneticWrapper';
-import ScrollHeading from '../ScrollHeading';
 
 const Contact = () => {
   return (
     <section id="contact" className="py-32 px-4 md:px-12 bg-obsidian">
         <div className="max-w-4xl mx-auto text-center">
-            <ScrollHeading>
+            <ConvergenceWrapper>
                 <h2 className="font-serif text-5xl text-bone mb-8">INITIATE <span className="text-magma">CONTACT</span></h2>
                 <p className="font-sans text-taupe mb-12">For bespoke commissions or wholesale inquiries.</p>
-            </ScrollHeading>
+            </ConvergenceWrapper>
 
             <ConvergenceWrapper delay={0.2}>
                 <form className="space-y-6 text-left bg-white/5 p-8 md:p-12 rounded-2xl border border-white/10 backdrop-blur-sm">
