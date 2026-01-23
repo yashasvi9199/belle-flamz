@@ -2,6 +2,7 @@
 
 ## 1.2.4
 
+- change: Refined Gallery navigation (moved tiny images to bottom, removed all blur effects)
 - fix: Gallery images not loading (replaced placeholders with img tags)
 
 ## 1.2.3

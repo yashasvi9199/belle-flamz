@@ -18,23 +18,13 @@ const Gallery = () => {
 
   const selectedImage = images[selectedIndex];
 
-  // Get prev/next images for navigation (2 each)
-  const prevImages = useMemo(() => {
-    const prev: (GalleryImage | null)[] = [];
-    for (let i = 2; i >= 1; i--) {
-      const idx = selectedIndex - i;
-      prev.push(idx >= 0 ? images[idx] : null);
-    }
-    return prev;
+  // Get single prev/next images for the asterisk pattern
+  const prevImage = useMemo(() => {
+    return selectedIndex > 0 ? images[selectedIndex - 1] : null;
   }, [selectedIndex, images]);
 
-  const nextImages = useMemo(() => {
-    const next: (GalleryImage | null)[] = [];
-    for (let i = 1; i <= 2; i++) {
-      const idx = selectedIndex + i;
-      next.push(idx < images.length ? images[idx] : null);
-    }
-    return next;
+  const nextImage = useMemo(() => {
+    return selectedIndex < images.length - 1 ? images[selectedIndex + 1] : null;
   }, [selectedIndex, images]);
 
   // Check if scrollbar needed (more than 6 images with 3 per row = 2 rows)
@@ -62,88 +52,88 @@ const Gallery = () => {
           </h2>
         </ConvergenceWrapper>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
-          {/* Left Panel - Preview with Navigation */}
-          <ConvergenceWrapper className="lg:col-span-3 flex items-center gap-4" staggerIndex={1}>
-            {/* Previous Images Stack */}
-            <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
-              {prevImages.map((img, i) => (
-                <button
-                  key={img?.id || `prev-${i}`}
-                  onClick={() => img && handleNavigate('prev', 2 - i)}
-                  disabled={!img}
-                  className={`aspect-square rounded-lg overflow-hidden transition-all duration-300 ${
-                    img 
-                      ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-60 hover:opacity-100' 
-                      : 'bg-white/5 border border-white/5 opacity-20 cursor-default'
-                  }`}
-                >
-                  {img && (
-                    <img 
-                      src={img.src} 
-                      alt={img.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </button>
-              ))}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+          {/* Left Panel - Pattern: "*" [prev] <preview> [next] "*" */}
+          <ConvergenceWrapper className="lg:col-span-9 flex items-end justify-center gap-4 md:gap-8" staggerIndex={1}>
+            {/* Left Decorative Asterisk (Bottom Aligned) */}
+            <div className="hidden sm:block text-magma/40 text-4xl md:text-5xl font-serif select-none mb-1">
+              "*"
             </div>
 
-            {/* Main Preview */}
-            <div className="flex-1 relative">
-              <div className="aspect-[4/3] bg-white/5 rounded-xl overflow-hidden relative group">
+            {/* Previous Tiny Image (*) */}
+            <button
+              onClick={() => prevImage && handleNavigate('prev')}
+              disabled={!prevImage}
+              className={`w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 mb-1 ${
+                prevImage 
+                  ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-70 hover:opacity-100 scale-90 hover:scale-100' 
+                  : 'bg-white/5 border border-white/5 opacity-10 cursor-default'
+              }`}
+            >
+              {prevImage && (
+                <img 
+                  src={prevImage.src} 
+                  alt="Previous"
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </button>
+
+            {/* Main Preview (The anchor) */}
+            <div className="flex-1 max-w-[700px] relative">
+              <div className="aspect-[16/10] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.title}
-                  className="w-full h-full object-cover transition-transform duration-700"
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows (Internal Overlay) */}
                 <button
                   onClick={() => handleNavigate('prev')}
                   disabled={selectedIndex === 0}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 disabled:cursor-default hover:bg-magma/50"
+                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden"
                 >
-                  <ChevronLeft className="w-5 h-5 text-bone" />
+                  <ChevronLeft className="w-6 h-6 text-bone" />
                 </button>
                 <button
                   onClick={() => handleNavigate('next')}
                   disabled={selectedIndex === images.length - 1}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/40 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0 disabled:cursor-default hover:bg-magma/50"
+                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden"
                 >
-                  <ChevronRight className="w-5 h-5 text-bone" />
+                  <ChevronRight className="w-6 h-6 text-bone" />
                 </button>
               </div>
             </div>
 
-            {/* Next Images Stack */}
-            <div className="hidden md:flex flex-col gap-2 w-16 shrink-0">
-              {nextImages.map((img, i) => (
-                <button
-                  key={img?.id || `next-${i}`}
-                  onClick={() => img && handleNavigate('next', i + 1)}
-                  disabled={!img}
-                  className={`aspect-square rounded-lg overflow-hidden transition-all duration-300 ${
-                    img 
-                      ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-60 hover:opacity-100' 
-                      : 'bg-white/5 border border-white/5 opacity-20 cursor-default'
-                  }`}
-                >
-                  {img && (
-                    <img 
-                      src={img.src} 
-                      alt={img.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                </button>
-              ))}
+            {/* Next Tiny Image (*) */}
+            <button
+              onClick={() => nextImage && handleNavigate('next')}
+              disabled={!nextImage}
+              className={`w-14 h-14 md:w-20 md:h-20 rounded-xl overflow-hidden shrink-0 transition-all duration-300 mb-1 ${
+                nextImage 
+                  ? 'bg-white/5 border border-white/10 hover:border-magma/50 cursor-pointer opacity-70 hover:opacity-100 scale-90 hover:scale-100' 
+                  : 'bg-white/5 border border-white/5 opacity-10 cursor-default'
+              }`}
+            >
+              {nextImage && (
+                <img 
+                  src={nextImage.src} 
+                  alt="Next"
+                  className="w-full h-full object-cover"
+                />
+              )}
+            </button>
+
+            {/* Right Decorative Asterisk (Bottom Aligned) */}
+            <div className="hidden sm:block text-magma/40 text-4xl md:text-5xl font-serif select-none mb-1">
+              "*"
             </div>
           </ConvergenceWrapper>
 
           {/* Right Panel - Grid + Description */}
-          <ConvergenceWrapper className="lg:col-span-2 flex flex-col gap-6" staggerIndex={2}>
+          <ConvergenceWrapper className="lg:col-span-3 flex flex-col gap-6" staggerIndex={2}>
             {/* Grid Container */}
             <div className="relative">
               <div 
