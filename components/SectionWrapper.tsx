@@ -1,4 +1,4 @@
-import React, { memo, ReactNode, CSSProperties } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { useSectionScroll } from '../hooks/useSectionScroll';
 
 interface SectionWrapperProps {
@@ -12,36 +12,33 @@ const SectionWrapper = ({
   sectionIndex,
   totalSections,
 }: SectionWrapperProps) => {
-  const { ref, isLeaving, translateY, isActive, isIncoming } = useSectionScroll(sectionIndex);
+  const { ref } = useSectionScroll(sectionIndex);
 
-  // Curtain scroll effect:
-  // - Scroll down: current section stays sticky, new section slides up from bottom to cover it
-  // - Scroll up: current section slides down (inverse curtain), revealing sticky previous section
-
-  const wrapperStyle: CSSProperties = {
-    position: isLeaving ? 'fixed' : 'relative',
-    top: isLeaving ? 0 : 'auto',
-    left: isLeaving ? 0 : 'auto',
-    zIndex: sectionIndex + 1, // Higher sections sit on top of lower ones
-    width: '100%',
-    minHeight: '100vh',
-    backgroundColor: '#312B1E', // Match obsidian to prevent flashes
-    willChange: 'transform',
-    // Apply translateY for incoming sections to create slide-up effect
-    transform: translateY > 0 ? `translateY(${translateY}px)` : 'none',
-    // Disable pointer events on leaving section so incoming section is interactive
-    pointerEvents: isLeaving ? 'none' : 'auto',
-  };
-
-  // Container maintains scroll height when section goes fixed
-  const containerStyle: CSSProperties = {
-    height: '100vh',
-    position: 'relative',
-  };
-
+  // Pure CSS curtain scroll effect using sticky positioning
+  // Each section sticks to top while scrolling, creating the "cover" effect
+  // Higher z-index for later sections ensures proper stacking order
+  
   return (
-    <div style={containerStyle}>
-      <div ref={ref} style={wrapperStyle}>
+    <div 
+      className="section-container"
+      style={{
+        height: '100vh',
+        position: 'sticky',
+        top: 0,
+        zIndex: sectionIndex + 1,
+      }}
+    >
+      <div 
+        ref={ref}
+        className="section-content"
+        style={{
+          width: '100%',
+          height: '100%',
+          minHeight: '100vh',
+          backgroundColor: '#312B1E',
+          overflow: 'hidden',
+        }}
+      >
         {children}
       </div>
     </div>
