@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.2.6
+
+- feature: replaced navigation dots with animated Lucide icons (Home, Gallery, Design, Inventory, User)
+- change: added tooltips and interactive hover states to side navigation
+
 ## 1.2.5
 
 - fix: added scroll buffer between sections to prevent premature transitions

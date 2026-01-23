@@ -5,6 +5,16 @@ import Inventory from './components/sections/Inventory';
 import CandleDesigner from './components/sections/CandleDesigner';
 import Contact from './components/sections/Contact';
 import SectionWrapper from './components/SectionWrapper';
+import { Home, GalleryHorizontalEnd, SquarePen, Archive, User } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const NAV_ITEMS = [
+  { id: 'hero', Icon: Home, label: 'Home' },
+  { id: 'gallery', Icon: GalleryHorizontalEnd, label: 'Gallery' },
+  { id: 'designer', Icon: SquarePen, label: 'Design' },
+  { id: 'inventory', Icon: Archive, label: 'Inventory' },
+  { id: 'contact', Icon: User, label: 'Contact' },
+];
 
 const TOTAL_SECTIONS = 5;
 
@@ -39,15 +49,30 @@ function App() {
         <Contact />
       </SectionWrapper>
       
-      {/* Sticky Navigation Dot */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[60] hidden md:flex flex-col gap-4">
-        {['hero', 'gallery', 'designer', 'inventory', 'contact'].map((id) => (
-          <a 
+      {/* Sticky Navigation Icons */}
+      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[60] hidden md:flex flex-col gap-6 items-center">
+        {NAV_ITEMS.map(({ id, Icon, label }) => (
+          <motion.a 
             key={id} 
             href={`#${id}`}
-            className="w-2 h-2 rounded-full bg-white/20 hover:bg-magma transition-colors duration-300"
-            aria-label={`Scroll to ${id}`}
-          />
+            whileHover={{ scale: 1.2, color: '#FC5C02' }}
+            whileTap={{ scale: 0.9 }}
+            className="group relative flex items-center justify-center p-2 rounded-full bg-white/5 border border-white/10 hover:border-magma/50 transition-colors duration-300 text-white/40"
+            aria-label={`Scroll to ${label}`}
+          >
+            <Icon size={18} strokeWidth={1.5} />
+            
+            {/* Tooltip */}
+            <span className="absolute right-full mr-4 px-2 py-1 rounded bg-obsidian border border-white/10 text-[10px] uppercase tracking-widest text-taupe opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+              {label}
+            </span>
+            
+            {/* Active Indicator Glow */}
+            <motion.div 
+              layoutId="nav-glow"
+              className="absolute inset-0 rounded-full bg-magma/0 group-hover:bg-magma/5 blur-md -z-10"
+            />
+          </motion.a>
         ))}
       </div>
     </main>
