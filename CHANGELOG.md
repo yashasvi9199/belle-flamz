@@ -1,0 +1,26 @@
+# CHANGELOG
+
+## 1.2.0
+
+- feature: Hero section repositioned with left-aligned branding and business tagline
+- feature: Gallery section redesigned with grid/preview layout and 2 prev/2 next navigation
+- feature: Atelier Custom replaced Sculptural with custom image upload option
+- feature: Fragrance Archive now loads from JSON with popularity-based sorting
+- feature: Scroll animation system with blur and overlap transitions between sections
+- change: ConvergenceWrapper optimized with fixed initial states to prevent jitter
+- removed: Explore Collection button from Hero section
+- removed: Generate Artifact Mythos button from Atelier Custom
+- removed: Intensity slider from Fragrance Archive search
+
+## 1.1.0
+
+- feature: animated hero section with burning candle background and light flicker effects
+
+## 1.0.1
+
+- fix: TypeScript namespace error in useMagnetic hook
+- fix: ConvergenceWrapper key prop type definition
+
+## 1.0.0
+
+- feature: initial project setup
