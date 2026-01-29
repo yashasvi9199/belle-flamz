@@ -95,7 +95,7 @@ const Hero = () => {
         >
           <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
             <Flame className="w-4 h-4 md:w-5 md:h-5 text-magma" />
-            <span className="font-sans text-magma text-xs md:text-sm tracking-[0.3em] md:tracking-[0.5em] uppercase">Est. 2024</span>
+            <span className="font-sans text-magma text-xs md:text-sm tracking-[0.3em] md:tracking-[0.5em] uppercase">Est. 2026</span>
           </div>
           
           <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-bone via-bone to-taupe/60">
