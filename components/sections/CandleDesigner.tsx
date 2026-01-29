@@ -26,7 +26,7 @@ const CandleDesigner = () => {
   };
 
   return (
-    <section id="designer" className="min-h-screen py-16 md:py-32 px-4 md:px-12 bg-[#2a2419] border-t border-white/5 relative overflow-hidden">
+    <section id="designer" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-[#2a2419] border-t border-white/5 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
 
@@ -64,7 +64,6 @@ const CandleDesigner = () => {
                 <button
                   onClick={() => {
                     updateField('shape', 'custom');
-                    triggerUpload();
                   }}
                   className={`flex-1 py-3 md:py-4 border rounded-lg font-serif italic text-base md:text-lg transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     design.shape === 'custom'
