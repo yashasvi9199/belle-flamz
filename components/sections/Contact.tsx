@@ -15,7 +15,7 @@ const Contact = () => {
             </div>
 
             <ConvergenceWrapper delay={0.2}>
-                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-4 md:p-8 lg:p-12 rounded-2xl border border-white/10 backdrop-blur-sm">
+                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-4 md:p-8 lg:p-12 rounded-2xl border border-white/10">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className="space-y-1.5 md:space-y-2">
                             <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Identity</label>

@@ -8,7 +8,7 @@ const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
   <div className="group relative p-3 md:p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-lg md:rounded-xl transition-colors duration-300">
     <div className="flex justify-between items-start mb-2 md:mb-4">
       <h3 className="font-serif text-lg md:text-2xl text-bone">{fragrance.name}</h3>
-      <span className="font-sans text-magma font-bold text-xs md:text-base">${fragrance.price}</span>
+      <span className="font-sans text-magma font-bold text-xs md:text-base">₹{fragrance.price}</span>
     </div>
     
     <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-6">
@@ -78,7 +78,7 @@ const Inventory = () => {
         <div className="relative">
           <div 
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 ${
-              showScrollbar ? 'md:max-h-[70vh] md:overflow-y-auto md:pr-4' : ''
+              showScrollbar ? 'max-h-[50vh] md:max-h-[70vh] overflow-y-auto pr-2 md:pr-4' : ''
             }`}
             style={{
               scrollbarWidth: 'thin',
@@ -99,7 +99,7 @@ const Inventory = () => {
           </div>
           
           {showScrollbar && (
-            <div className="hidden md:block absolute bottom-0 left-0 right-4 h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-2 md:right-4 h-12 md:h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
           )}
         </div>
       </div>

@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.10
+
+- fix: updated currency symbol from $ to ₹ across the application
+- fix: restored separate internal scroll for Fragrance Archive grid on both mobile and desktop
+- change: refined mobile viewport sizing for all sections to prevent bottom clipping
+
 ## 1.2.9
 
 - feature: added GitHub Pages deployment workflow and configured Vite base path for subfolder hosting

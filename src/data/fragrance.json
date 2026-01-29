@@ -5,7 +5,7 @@
       "name": "Midnight Oud",
       "notes": ["Oud", "Rose", "Amber"],
       "intensity": 9,
-      "price": 45,
+      "price": 450,
       "inStock": true,
       "popularity": 95
     },
@@ -14,7 +14,7 @@
       "name": "Desert Sage",
       "notes": ["Sage", "Sea Salt", "Driftwood"],
       "intensity": 5,
-      "price": 35,
+      "price": 350,
       "inStock": true,
       "popularity": 78
     },
@@ -23,7 +23,7 @@
       "name": "Spiced Pumpkin",
       "notes": ["Cinnamon", "Nutmeg", "Pumpkin"],
       "intensity": 7,
-      "price": 38,
+      "price": 380,
       "inStock": false,
       "popularity": 82
     },
@@ -32,7 +32,7 @@
       "name": "Vanilla Bean",
       "notes": ["Vanilla", "Cream", "Musk"],
       "intensity": 4,
-      "price": 30,
+      "price": 300,
       "inStock": true,
       "popularity": 88
     },
@@ -41,7 +41,7 @@
       "name": "Smoked Leather",
       "notes": ["Leather", "Tobacco", "Cedar"],
       "intensity": 8,
-      "price": 50,
+      "price": 500,
       "inStock": true,
       "popularity": 72
     },
@@ -50,7 +50,7 @@
       "name": "Fresh Linen",
       "notes": ["Cotton", "Lavender", "Breeze"],
       "intensity": 3,
-      "price": 28,
+      "price": 280,
       "inStock": true,
       "popularity": 65
     },
@@ -59,7 +59,7 @@
       "name": "Tropical Paradise",
       "notes": ["Coconut", "Mango", "Hibiscus"],
       "intensity": 6,
-      "price": 32,
+      "price": 320,
       "inStock": true,
       "popularity": 70
     }
