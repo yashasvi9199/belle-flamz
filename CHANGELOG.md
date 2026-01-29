@@ -1,10 +1,12 @@
 # CHANGELOG
 
-## 1.2.11
+## 1.3.1
 
-- fix: resolved mobile browser empty space issue by implementing dynamic viewport units (dvh)
-- fix: sections now use CSS custom properties (--section-height) that adapt to actual mobile browser viewport
-- change: replaced hardcoded 100vh/140vh with var(--section-height) across SectionWrapper and all section components
+- fix: resolved mobile browser empty space issue with JS-based viewport height calculation
+- fix: sections now properly fill viewport using flexbox (flex-1) instead of problematic min-height
+- change: added window.innerHeight-based --vh custom property updated on resize/orientation change
+- change: SectionWrapper now uses display:flex to ensure children fill available space
+- change: removed inline minHeight styles from all sections in favor of CSS-driven layout
 
 ## 1.2.10
 
