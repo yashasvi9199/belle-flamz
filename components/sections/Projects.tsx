@@ -40,19 +40,19 @@ const Gallery = () => {
     <section id="gallery" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-24">
           <ConvergenceWrapper>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-bone">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
               THE <span className="text-magma italic">GALLERY</span>
             </h2>
           </ConvergenceWrapper>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16 items-center">
           {/* Left Panel - Portrait Preview Only */}
           <ConvergenceWrapper className="lg:col-span-7 flex justify-center order-1 lg:order-1" staggerIndex={1}>
-            <div className="w-full max-w-[320px] md:max-w-[420px] relative">
-              <div className="aspect-[3/4] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
+            <div className="w-full max-w-[240px] md:max-w-[420px] relative">
+              <div className="aspect-[3/4] bg-white/5 rounded-xl md:rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
                 <img
                   key={selectedImage.src}
                   src={getAssetPath(selectedImage.src)}
@@ -96,7 +96,7 @@ const Gallery = () => {
                   <button
                     key={img.id}
                     onClick={() => setSelectedIndex(index)}
-                    className={`flex-shrink-0 w-16 h-16 md:w-auto md:h-auto md:aspect-square rounded-lg overflow-hidden transition-all duration-300 snap-start ${
+                    className={`flex-shrink-0 w-12 h-12 md:w-auto md:h-auto md:aspect-square rounded-md md:rounded-lg overflow-hidden transition-all duration-300 snap-start ${
                       selectedIndex === index
                         ? 'ring-2 ring-magma ring-offset-2 ring-offset-obsidian scale-95'
                         : 'bg-white/5 border border-white/10 hover:border-white/30'
@@ -118,11 +118,11 @@ const Gallery = () => {
             </div>
 
             {/* Description */}
-            <div className="p-3 md:p-4 bg-white/5 border border-white/10 rounded-xl">
-              <h4 className="font-serif text-lg md:text-xl text-bone italic mb-1 md:mb-2">
+            <div className="p-2 md:p-4 bg-white/5 border border-white/10 rounded-lg md:rounded-xl">
+              <h4 className="font-serif text-base md:text-xl text-bone italic mb-0.5 md:mb-2">
                 {selectedImage.title}
               </h4>
-              <p className="font-sans text-xs md:text-sm text-taupe leading-relaxed line-clamp-3 md:line-clamp-4">
+              <p className="font-sans text-[10px] md:text-sm text-taupe leading-relaxed line-clamp-2 md:line-clamp-4">
                 {selectedImage.description}
               </p>
             </div>

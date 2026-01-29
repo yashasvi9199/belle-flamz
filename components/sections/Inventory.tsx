@@ -5,15 +5,15 @@ import { Fragrance } from '../../types';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
 
 const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
-  <div className="group relative p-4 md:p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-xl transition-colors duration-300">
-    <div className="flex justify-between items-start mb-3 md:mb-4">
-      <h3 className="font-serif text-xl md:text-2xl text-bone">{fragrance.name}</h3>
-      <span className="font-sans text-magma font-bold text-sm md:text-base">${fragrance.price}</span>
+  <div className="group relative p-3 md:p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-lg md:rounded-xl transition-colors duration-300">
+    <div className="flex justify-between items-start mb-2 md:mb-4">
+      <h3 className="font-serif text-lg md:text-2xl text-bone">{fragrance.name}</h3>
+      <span className="font-sans text-magma font-bold text-xs md:text-base">${fragrance.price}</span>
     </div>
     
-    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
+    <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-6">
       {fragrance.notes.map(note => (
-        <span key={note} className="px-1.5 py-0.5 md:px-2 md:py-1 text-[10px] md:text-xs font-sans uppercase tracking-wider bg-white/5 rounded-md text-taupe">
+        <span key={note} className="px-1 py-0.5 md:px-2 md:py-1 text-[9px] md:text-xs font-sans uppercase tracking-wider bg-white/5 rounded text-taupe">
           {note}
         </span>
       ))}
@@ -54,22 +54,22 @@ const Inventory = () => {
   return (
     <section id="inventory" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-6 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-24 gap-4 md:gap-0">
           <ConvergenceWrapper>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-7xl text-bone">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
               FRAGRANCE <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe">ARCHIVE</span>
             </h2>
           </ConvergenceWrapper>
 
           <ConvergenceWrapper className="w-full md:w-auto" staggerIndex={1}>
-            <div className="flex gap-3 md:gap-4 items-center bg-white/5 p-2 rounded-lg border border-white/10">
-              <Search className="w-4 h-4 md:w-5 md:h-5 text-taupe ml-2" />
+            <div className="flex gap-2 md:gap-4 items-center bg-white/5 p-1.5 md:p-2 rounded-lg border border-white/10">
+              <Search className="w-3.5 h-3.5 md:w-5 md:h-5 text-taupe ml-1.5 md:ml-2" />
               <input 
                 type="text" 
                 placeholder="Search your desires" 
                 value={searchTerm}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="bg-transparent border-none outline-none text-bone placeholder-gray-600 font-sans w-full md:w-64 text-sm md:text-base"
+                className="bg-transparent border-none outline-none text-bone placeholder-gray-600 font-sans w-full md:w-64 text-xs md:text-base"
               />
             </div>
           </ConvergenceWrapper>
@@ -77,7 +77,7 @@ const Inventory = () => {
 
         <div className="relative">
           <div 
-            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 ${
+            className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 ${
               showScrollbar ? 'md:max-h-[70vh] md:overflow-y-auto md:pr-4' : ''
             }`}
             style={{

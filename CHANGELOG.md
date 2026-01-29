@@ -8,6 +8,7 @@
 - fix: gallery mobile view - removed navigation arrows, added bottom padding for description visibility
 - fix: atelier custom - separated custom shape selection from file upload trigger, added bottom padding for preview visibility
 - fix: fragrance archive - removed scroll constraints on mobile for full card visibility
+- change: reduced component sizes on mobile (smaller titles, thumbnails, cards, previews) for full viewport visibility
 
 ## 1.2.8
 

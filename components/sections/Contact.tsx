@@ -43,7 +43,7 @@ const Contact = () => {
 
             <ConvergenceWrapper delay={0.4} className="mt-12 md:mt-24 pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
                 <p className="font-sans text-[10px] md:text-xs text-taupe uppercase tracking-widest">© 2024 Belle Flamz. All rights reserved.</p>
-                <p className="font-serif italic text-taupe text-sm md:text-base">Designed by Sovereign Architects</p>
+                {/* <p className="font-serif italic text-taupe text-sm md:text-base">Designed by Yash Haldiya</p> */}
             </ConvergenceWrapper>
         </div>
     </section>
