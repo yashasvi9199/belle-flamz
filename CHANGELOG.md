@@ -3,6 +3,7 @@
 ## 1.2.9
 
 - feature: added GitHub Pages deployment workflow and configured Vite base path for subfolder hosting
+- fix: resolved 404 image errors in both dev and production by implementing dynamic asset path resolution
 
 ## 1.2.8
 

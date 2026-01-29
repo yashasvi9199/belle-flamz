@@ -1,6 +1,7 @@
 import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { Flame } from 'lucide-react';
+import { getAssetPath } from '../../src/utils/path';
 
 const Hero = () => {
   return (
@@ -8,7 +9,7 @@ const Hero = () => {
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/hero-candles.png" 
+          src={getAssetPath('/hero-candles.png')} 
           alt="Burning luxury candles" 
           className="w-full h-full object-cover opacity-40 scale-105"
           style={{ willChange: 'transform' }}

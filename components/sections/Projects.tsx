@@ -2,6 +2,7 @@ import React, { memo, useState, useMemo, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import galleryData from '../../src/data/gallery.json';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
+import { getAssetPath } from '../../src/utils/path';
 
 interface GalleryImage {
   id: string;
@@ -54,7 +55,7 @@ const Gallery = () => {
               <div className="aspect-[3/4] bg-white/5 rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
                 <img
                   key={selectedImage.src}
-                  src={selectedImage.src}
+                  src={getAssetPath(selectedImage.src)}
                   alt={selectedImage.title}
                   className="w-full h-full object-cover transition-all duration-1000 animate-in fade-in zoom-in-95"
                 />
@@ -106,7 +107,7 @@ const Gallery = () => {
                     }`}
                   >
                     <img 
-                      src={img.src} 
+                      src={getAssetPath(img.src)} 
                       alt={img.title}
                       className="w-full h-full object-cover"
                     />
