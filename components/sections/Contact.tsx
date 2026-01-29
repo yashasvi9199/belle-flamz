@@ -5,35 +5,35 @@ import { MagneticWrapper } from '../MagneticWrapper';
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full min-h-screen py-32 px-8 bg-obsidian border-t border-white/5">
-        <div className="max-w-4xl mx-auto text-center">
-            <div className="flex flex-col justify-between items-center mb-24">
+    <section id="contact" className="w-full min-h-screen py-10 md:py-20 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center">
+        <div className="max-w-4xl mx-auto w-full text-center">
+            <div className="flex flex-col justify-between items-center mb-10 md:mb-24">
               <ConvergenceWrapper>
-                  <h2 className="font-serif text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
-                  <p className="font-sans text-base text-taupe mt-4">For bespoke commissions or wholesale inquiries.</p>
+                  <h2 className="font-serif text-3xl md:text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
+                  <p className="font-sans text-xs md:text-base text-taupe mt-3 md:mt-4">For bespoke commissions or wholesale inquiries.</p>
               </ConvergenceWrapper>
             </div>
 
             <ConvergenceWrapper delay={0.2}>
-                <form className="space-y-6 text-left bg-white/5 p-12 rounded-2xl border border-white/10">
-                    <div className="grid grid-cols-2 gap-6">
-                        <div className="space-y-2">
-                            <label className="text-xs font-sans text-magma uppercase tracking-widest">Identity</label>
-                            <input type="text" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-base focus:border-magma outline-none transition-colors" />
+                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-6 md:p-8 lg:p-12 rounded-2xl border border-white/10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                        <div className="space-y-1.5 md:space-y-2">
+                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Identity</label>
+                            <input type="text" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
                         </div>
-                        <div className="space-y-2">
-                            <label className="text-xs font-sans text-magma uppercase tracking-widest">Signal</label>
-                            <input type="email" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-base focus:border-magma outline-none transition-colors" />
+                        <div className="space-y-1.5 md:space-y-2">
+                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Signal</label>
+                            <input type="email" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
                         </div>
                     </div>
-                    <div className="space-y-2">
-                        <label className="text-xs font-sans text-magma uppercase tracking-widest">Transmission</label>
-                        <textarea rows={3} className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-base focus:border-magma outline-none transition-colors" />
+                    <div className="space-y-1.5 md:space-y-2">
+                        <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Transmission</label>
+                        <textarea rows={4} className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors resize-none" />
                     </div>
 
-                    <div className="flex justify-end pt-4">
+                    <div className="flex justify-end pt-2">
                         <MagneticWrapper>
-                            <button type="button" className="px-8 py-3 bg-bone text-obsidian font-sans font-bold uppercase tracking-widest text-sm hover:bg-magma hover:text-white transition-colors flex items-center gap-2 rounded">
+                            <button type="button" className="w-full md:w-auto px-8 py-3 bg-bone text-obsidian font-sans font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-magma hover:text-white transition-colors flex items-center justify-center gap-2 rounded">
                                 Transmit <Send className="w-4 h-4" />
                             </button>
                         </MagneticWrapper>
@@ -41,8 +41,8 @@ const Contact = () => {
                 </form>
             </ConvergenceWrapper>
 
-            <ConvergenceWrapper delay={0.4} className="mt-24 pt-8 border-t border-white/5 flex justify-between items-center">
-                <p className="font-sans text-xs text-taupe uppercase tracking-widest">© 2024 Belle Flamz. All rights reserved.</p>
+            <ConvergenceWrapper delay={0.4} className="mt-12 md:mt-24 pt-6 md:pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p className="font-sans text-[10px] md:text-xs text-taupe uppercase tracking-widest text-center">© 2024 Belle Flamz. All rights reserved.</p>
             </ConvergenceWrapper>
         </div>
     </section>

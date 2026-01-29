@@ -1,19 +1,11 @@
 # CHANGELOG
 
-## 1.3.2
+## 1.2.11
 
-- change: unified layout - removed all responsive breakpoints for identical desktop/mobile experience
-- change: simplified SectionWrapper - removed sticky scroll and parallax mechanics
-- change: removed mobile bottom navigation in favor of single fixed right-side nav
-- change: using dvh units for h-screen to fix mobile viewport height
-- removed: JS-based viewport height calculation
-
-## 1.3.1
-
-- fix: updated currency symbol from $ to ₹ across the application
-- fix: restored separate internal scroll for Fragrance Archive grid with refined spacing (moved up, added internal padding, and increased bottom clearance)
-- fix: adjusted Atelier Custom layout to align preview panel with tagline and extend vertically
-- change: refined mobile viewport sizing for all sections to prevent bottom clipping
+- fix: implemented mobile responsiveness fix for "squashed" components and excessive bottom scroll space
+- change: upgraded SectionWrapper to use dynamic viewport height (dvh) and flex-centering for robust mobile vertical alignment
+- fix: increased element scales on mobile (Galleries, Previews, Titles) for better screen utilization
+- fix: resolved syntax error in Hero.tsx and improved text alignment for handheld devices
 
 ## 1.2.9
 
