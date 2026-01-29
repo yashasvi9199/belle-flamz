@@ -3,7 +3,7 @@
 ## 1.2.10
 
 - fix: updated currency symbol from $ to ₹ across the application
-- fix: restored separate internal scroll for Fragrance Archive grid on both mobile and desktop
+- fix: restored separate internal scroll for Fragrance Archive grid with refined spacing (moved up, added internal padding, and increased bottom clearance)
 - fix: adjusted Atelier Custom layout to align preview panel with tagline and extend vertically
 - change: refined mobile viewport sizing for all sections to prevent bottom clipping
 
@@ -14,7 +14,7 @@
 - feature: comprehensive mobile optimization for all sections with responsive typography, touch-friendly navigation, and horizontal scroll galleries
 - fix: gallery mobile view - removed navigation arrows, added bottom padding for description visibility
 - fix: atelier custom - separated custom shape selection from file upload trigger, added bottom padding for preview visibility
-- fix: fragrance archive - removed scroll constraints on mobile for full card visibility
+- fix: fragrance archive - removed scroll constraints on mobile for full card visibility, adjusted desktop spacing to prevent clipping
 - change: reduced component sizes on mobile (smaller titles, thumbnails, cards, previews) for full viewport visibility
 
 ## 1.2.8

@@ -52,11 +52,11 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5">
+    <section id="inventory" className="min-h-screen pt-16 md:pt-32 px-4 md:px-12 pb-32 md:pb-64 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-24 gap-4 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gap-4 md:gap-0">
           <ConvergenceWrapper>
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
+            <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone leading-tight">
               FRAGRANCE <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe">ARCHIVE</span>
             </h2>
           </ConvergenceWrapper>
@@ -75,10 +75,10 @@ const Inventory = () => {
           </ConvergenceWrapper>
         </div>
 
-        <div className="relative">
+        <div className="relative md:mt-[-32px] mb-16 md:mb-32">
           <div 
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 ${
-              showScrollbar ? 'max-h-[50vh] md:max-h-[70vh] overflow-y-auto pr-2 md:pr-4' : ''
+              showScrollbar ? 'max-h-[55vh] md:max-h-[60vh] overflow-y-auto pr-2 md:pr-4 pt-4 pb-24' : ''
             }`}
             style={{
               scrollbarWidth: 'thin',
@@ -99,7 +99,7 @@ const Inventory = () => {
           </div>
           
           {showScrollbar && (
-            <div className="absolute bottom-0 left-0 right-2 md:right-4 h-12 md:h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 right-2 md:right-4 h-16 md:h-32 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
           )}
         </div>
       </div>
