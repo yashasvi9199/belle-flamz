@@ -52,7 +52,7 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="min-h-screen py-16 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
+    <section id="inventory" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24 gap-6 md:gap-0">
           <ConvergenceWrapper>
@@ -78,7 +78,7 @@ const Inventory = () => {
         <div className="relative">
           <div 
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 ${
-              showScrollbar ? 'max-h-[60vh] md:max-h-[70vh] overflow-y-auto pr-2 md:pr-4' : ''
+              showScrollbar ? 'md:max-h-[70vh] md:overflow-y-auto md:pr-4' : ''
             }`}
             style={{
               scrollbarWidth: 'thin',
@@ -99,7 +99,7 @@ const Inventory = () => {
           </div>
           
           {showScrollbar && (
-            <div className="absolute bottom-0 left-0 right-2 md:right-4 h-16 md:h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
+            <div className="hidden md:block absolute bottom-0 left-0 right-4 h-24 bg-gradient-to-t from-obsidian to-transparent pointer-events-none" />
           )}
         </div>
       </div>
