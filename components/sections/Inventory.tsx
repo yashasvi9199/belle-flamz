@@ -8,9 +8,9 @@ import { getAssetPath } from '../../src/utils/path';
 
 const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
   <div className="group relative p-3 md:p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-lg md:rounded-xl transition-colors duration-300">
-    <div className="flex justify-between items-start mb-2 md:mb-4">
-      <h3 className="font-serif text-lg md:text-2xl text-bone">{fragrance.name}</h3>
-      <span className="font-sans text-magma font-bold text-xs md:text-base">₹{fragrance.price}</span>
+    <div className="flex justify-between items-start mb-2 md:mb-3">
+      <h3 className="font-serif text-lg md:text-xl text-bone">{fragrance.name}</h3>
+      <span className="font-sans text-magma font-bold text-xs md:text-sm">₹{fragrance.price}</span>
     </div>
     
     <div className="flex flex-wrap gap-1 md:gap-2 mb-3 md:mb-6">
@@ -35,7 +35,7 @@ const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
       </div>
       <button 
         disabled={!fragrance.inStock} 
-        className={`px-3 md:px-5 py-2 md:py-2.5 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all duration-300 ${
+        className={`px-3 md:px-4 py-2 md:py-2 rounded-full font-sans text-[10px] md:text-[10px] uppercase tracking-[0.2em] transition-all duration-300 ${
           fragrance.inStock 
             ? 'bg-magma text-obsidian hover:bg-bone hover:scale-105 shadow-lg shadow-magma/20' 
             : 'bg-white/5 text-taupe cursor-not-allowed border border-white/5'
@@ -54,7 +54,7 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+    <section id="inventory" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start md:py-10 overflow-hidden md:h-screen">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -65,7 +65,7 @@ const Inventory = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent" />
       </div>
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-8 md:gap-0">
           <div className="flex flex-col gap-4 md:gap-6">
             <ConvergenceWrapper>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone leading-tight text-center md:text-left">

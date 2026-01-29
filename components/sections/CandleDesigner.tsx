@@ -28,7 +28,7 @@ const CandleDesigner = () => {
   };
 
   return (
-    <section id="designer" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+    <section id="designer" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -45,7 +45,7 @@ const CandleDesigner = () => {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Title Area */}
-          <div className="lg:col-span-2 mb-2 md:mb-8">
+          <div className="lg:col-span-2 mb-4 md:mb-6">
             <ConvergenceWrapper>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone text-center md:text-left">
                 BESPOKE <span className="text-magma italic font-light">ATELIER</span>
@@ -162,7 +162,7 @@ const CandleDesigner = () => {
             <div className="w-full max-w-[320px] md:max-w-none aspect-square relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl flex items-center justify-center p-8 md:p-12">
               {/* Abstract Visualizer */}
               <div 
-                className="w-32 h-32 md:w-64 md:h-64 rounded-full blur-3xl transition-all duration-1000 opacity-60"
+                className="w-32 h-32 md:w-56 md:h-56 rounded-full blur-3xl transition-all duration-1000 opacity-60"
                 style={{ backgroundColor: design.color }}
               />
               <div className="absolute inset-0 flex items-center justify-center">
@@ -170,15 +170,15 @@ const CandleDesigner = () => {
                   <img 
                     src={design.customImage} 
                     alt="Custom design"
-                    className="max-w-[120px] max-h-[160px] md:max-w-[240px] md:max-h-[320px] object-contain rounded-lg shadow-2xl"
+                    className="max-w-[120px] max-h-[160px] md:max-w-[200px] md:max-h-[280px] object-contain rounded-lg shadow-2xl"
                     style={{ boxShadow: `0 0 50px ${design.color}40` }}
                   />
                 ) : (
                   <div 
                     className={`transition-all duration-500 bg-white/10 border border-white/20 backdrop-blur-sm shadow-2xl
-                      ${design.shape === 'pillar' ? 'w-16 h-32 md:w-32 md:h-64' : ''}
-                      ${design.shape === 'jar' ? 'w-24 h-28 md:w-48 md:h-56 rounded-b-xl' : ''}
-                      ${design.shape === 'custom' ? 'w-24 h-24 md:w-48 md:h-48 rounded-xl border-dashed' : ''}
+                      ${design.shape === 'pillar' ? 'w-16 h-32 md:w-28 md:h-56' : ''}
+                      ${design.shape === 'jar' ? 'w-24 h-28 md:w-40 md:h-48 rounded-b-xl' : ''}
+                      ${design.shape === 'custom' ? 'w-24 h-24 md:w-44 md:h-44 rounded-xl border-dashed' : ''}
                     `}
                     style={{ boxShadow: `0 0 50px ${design.color}40` }}
                   >

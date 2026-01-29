@@ -25,7 +25,7 @@ const Gallery = () => {
   }, [images.length]);
 
   return (
-    <section id="gallery" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+    <section id="gallery" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -37,7 +37,7 @@ const Gallery = () => {
       </div>
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Title */}
-        <div className="mb-12 md:mb-20">
+        <div className="mb-8 md:mb-12">
           <ConvergenceWrapper>
             <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
               CURATED <span className="text-magma italic font-light">COLLECTIONS</span>
@@ -53,7 +53,7 @@ const Gallery = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Panel - Portrait Preview Only */}
           <ConvergenceWrapper className="lg:col-span-12 xl:col-span-7 flex justify-center order-1" staggerIndex={1}>
-            <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[420px] relative">
+            <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[340px] relative">
               <div className="aspect-[3/4] bg-white/5 rounded-xl md:rounded-2xl overflow-hidden relative group border border-magma/10 shadow-2xl">
                 <img
                   key={selectedImage.src}

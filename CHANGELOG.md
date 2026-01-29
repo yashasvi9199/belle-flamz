@@ -1,5 +1,23 @@
 # CHANGELOG
 
+## 1.3.6
+
+- fix: enforced strict 40px top clearance for The Olfactory Vault on desktop viewports
+- change: switched Inventory layout to `justify-start` with fixed `md:py-10` and `md:h-screen` to prevent content from "crawling" into the safety margins
+
+## 1.3.5
+
+- change: optimized desktop layouts to feature mandatory 40px padding at both the top and bottom of sections
+- change: switched to `justify-center` with `py-10` for desktop to ensure headings are properly spaced and components are vertically centered
+- change: reduced vertical scale of Gallery previews, Atelier visualizers, and Inventory cards for better viewport fit
+- fix: adjusted component internal spacing (mb, p) to prevent vertical overflow on standard desktop screens
+
+## 1.3.4
+
+- change: adjusted section layouts to move components slightly up on desktop by using `justify-end` with a fixed 40px bottom margin
+- change: preserved centered composition for mobile devices to ensure optimal touch ergonomics
+- fix: reduced vertical spacing between headings and content to prevent clipping on smaller desktop viewports
+
 ## 1.3.3
 
 - change: unified section layouts using `justify-start` and consistent top padding (py-32) for improved content flow

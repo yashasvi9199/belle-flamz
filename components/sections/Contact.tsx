@@ -6,7 +6,7 @@ import { getAssetPath } from '../../src/utils/path';
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+    <section id="contact" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -17,7 +17,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
         </div>
         <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-            <div className="flex flex-col justify-between items-center mb-12 md:mb-20">
+            <div className="flex flex-col justify-between items-center mb-8 md:mb-12">
               <ConvergenceWrapper>
                   <h2 className="font-serif text-3xl md:text-5xl text-bone">CURATE A <span className="text-magma italic font-light">CONVERSATION</span></h2>
                   <p className="font-sans text-xs md:text-lg text-taupe mt-4 md:mt-6 max-w-lg mx-auto leading-relaxed">Connect with our artisans for bespoke commissions, wholesale partnerships, or to simply share your experience.</p>
@@ -25,7 +25,7 @@ const Contact = () => {
             </div>
 
             <ConvergenceWrapper delay={0.2}>
-                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-6 md:p-8 lg:p-12 rounded-2xl border border-magma/10 shadow-2xl">
+                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-6 md:p-8 lg:p-10 rounded-2xl border border-magma/10 shadow-2xl">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className="space-y-1.5 md:space-y-2">
                             <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-[0.2em] font-light">Patron Name</label>
