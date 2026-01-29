@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.3.7
+
+- fix: restored centered alignment for The Olfactory Vault on mobile viewports
+- fix: resolved "crooked" layout on mobile by applying `justify-center` as the base flex property while maintaining `md:justify-start` for desktop safety margins
+
 ## 1.3.6
 
 - fix: enforced strict 40px top clearance for The Olfactory Vault on desktop viewports

@@ -54,7 +54,7 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start md:py-10 overflow-hidden md:h-screen">
+    <section id="inventory" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:justify-start md:py-10 overflow-hidden md:h-screen">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
