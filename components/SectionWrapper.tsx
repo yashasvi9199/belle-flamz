@@ -15,20 +15,14 @@ const SectionWrapper = ({
   const { ref } = useSectionScroll(sectionIndex);
   const containerRef = useRef<HTMLDivElement>(null);
   const [parallaxOffset, setParallaxOffset] = useState(0);
-
-  // Parallax logic: Pushes the current section content upwards
-  // when the next section starts to overlay it from the bottom.
   useEffect(() => {
     const handleScroll = () => {
       if (!containerRef.current) return;
       
       const rect = containerRef.current.getBoundingClientRect();
-      // Use dynamic viewport height for more accuracy on mobile
       const viewportHeight = window.innerHeight;
       
       const scrollProgress = -rect.top;
-      // On mobile, we might want a slightly different overlap or no overlap if it causes issues
-      // but let's stick to the current logic but with better height units.
       const pushStart = viewportHeight * 0.4;
       const pushEnd = viewportHeight * 1.4;
       
@@ -45,8 +39,10 @@ const SectionWrapper = ({
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
     
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [parallaxOffset]);
 
   const isLastSection = sectionIndex === totalSections - 1;
   
@@ -55,7 +51,6 @@ const SectionWrapper = ({
       ref={containerRef}
       className={`section-container ${isLastSection ? '' : 'overflow-visible'}`}
       style={{
-        // Using dvh (dynamic viewport height) for better mobile browser support
         height: isLastSection ? '100dvh' : '140dvh',
         position: 'sticky',
         top: 0,
@@ -67,7 +62,7 @@ const SectionWrapper = ({
         className="section-content flex flex-col items-center justify-center"
         style={{
           width: '100%',
-          height: '100dvh', // Content is always one viewport tall
+          height: '100dvh',
           backgroundColor: '#312B1E',
           overflow: 'hidden',
           transform: `translateY(${parallaxOffset}px)`,

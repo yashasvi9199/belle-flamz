@@ -1,9 +1,11 @@
 # CHANGELOG
 
-## 1.3.7
+## 1.3.9
 
-- fix: restored centered alignment for The Olfactory Vault on mobile viewports
-- fix: resolved "crooked" layout on mobile by applying `justify-center` as the base flex property while maintaining `md:justify-start` for desktop safety margins
+- fix: restored curtain sticky scroll effect for mobile viewports to maintain visual parity with desktop
+- fix: removed excessive vertical spacing introduced by mobile padding overrides
+- fix: restored internal scrolling and viewport constraints for Inventory, CandleDesigner, and Contact sections on mobile
+- change: optimized component scales in Atelier to prevent overlap on small screens
 
 ## 1.3.6
 

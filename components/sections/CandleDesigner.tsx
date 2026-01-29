@@ -57,7 +57,7 @@ const CandleDesigner = () => {
               </p>
             </ConvergenceWrapper>
           </div>
-
+          
           <div className="space-y-6 md:space-y-10 order-2 lg:order-1">
             <ConvergenceWrapper className="space-y-6 md:space-y-8" staggerIndex={1}>
               {/* Geometry Selection */}
