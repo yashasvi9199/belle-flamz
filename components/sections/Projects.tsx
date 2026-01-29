@@ -37,7 +37,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="min-h-screen py-16 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative">
+    <section id="gallery" className="min-h-screen py-16 md:py-32 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5 relative">
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-24">
@@ -61,20 +61,20 @@ const Gallery = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent opacity-80" />
 
-                {/* Navigation Arrows - Always visible on mobile, hover on desktop */}
+                {/* Navigation Arrows - Desktop only */}
                 <button
                   onClick={() => handleNavigate('prev')}
                   disabled={selectedIndex === 0}
-                  className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
+                  className="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
                 >
-                  <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 text-bone" />
+                  <ChevronLeft className="w-6 h-6 text-bone" />
                 </button>
                 <button
                   onClick={() => handleNavigate('next')}
                   disabled={selectedIndex === images.length - 1}
-                  className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
+                  className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-black/40 backdrop-blur-md rounded-full hidden md:flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all hover:bg-magma/50 disabled:hidden z-10"
                 >
-                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6 text-bone" />
+                  <ChevronRight className="w-6 h-6 text-bone" />
                 </button>
               </div>
             </div>
