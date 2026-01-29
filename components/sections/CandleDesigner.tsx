@@ -137,7 +137,7 @@ const CandleDesigner = () => {
                       type="color" 
                       value={design.color}
                       onChange={(e) => updateField('color', e.target.value)}
-                      className="w-8 h-8 md:w-12 md:h-12 rounded bg-transparent border-none cursor-pointer"
+                      className="w-8 h-8 md:w-6 md:h-6 rounded bg-transparent border-none cursor-pointer"
                     />
                     <span className="font-sans text-bone uppercase text-xs md:text-base tracking-widest">{design.color}</span>
                   </div>
