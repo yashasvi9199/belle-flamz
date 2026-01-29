@@ -4,6 +4,7 @@
 
 - feature: added GitHub Pages deployment workflow and configured Vite base path for subfolder hosting
 - fix: resolved 404 image errors in both dev and production by implementing dynamic asset path resolution
+- feature: comprehensive mobile optimization for all sections with responsive typography, touch-friendly navigation, and horizontal scroll galleries
 
 ## 1.2.8
 

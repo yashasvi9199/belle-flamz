@@ -49,7 +49,7 @@ function App() {
         <Contact />
       </SectionWrapper>
       
-      {/* Sticky Navigation Icons */}
+      {/* Sticky Navigation Icons - Desktop */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[60] hidden md:flex flex-col gap-6 items-center">
         {NAV_ITEMS.map(({ id, Icon, label }) => (
           <motion.a 
@@ -76,6 +76,24 @@ function App() {
           </motion.a>
         ))}
       </div>
+      
+      {/* Mobile Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 z-[60] md:hidden bg-obsidian/90 backdrop-blur-md border-t border-white/10 safe-area-inset-bottom">
+        <div className="flex justify-around items-center h-14 px-2">
+          {NAV_ITEMS.map(({ id, Icon, label }) => (
+            <motion.a 
+              key={id} 
+              href={`#${id}`}
+              whileTap={{ scale: 0.9 }}
+              className="flex flex-col items-center justify-center gap-0.5 py-1.5 px-3 text-white/50 active:text-magma transition-colors"
+              aria-label={`Scroll to ${label}`}
+            >
+              <Icon size={18} strokeWidth={1.5} />
+              <span className="text-[8px] uppercase tracking-wider">{label}</span>
+            </motion.a>
+          ))}
+        </div>
+      </nav>
     </main>
   );
 }
