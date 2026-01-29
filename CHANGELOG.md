@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.11
+
+- fix: resolved mobile browser empty space issue by implementing dynamic viewport units (dvh)
+- fix: sections now use CSS custom properties (--section-height) that adapt to actual mobile browser viewport
+- change: replaced hardcoded 100vh/140vh with var(--section-height) across SectionWrapper and all section components
+
 ## 1.2.10
 
 - fix: updated currency symbol from $ to ₹ across the application
