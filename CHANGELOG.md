@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.9
+
+- feature: added GitHub Pages deployment workflow and configured Vite base path for subfolder hosting
+
 ## 1.2.8
 
 - fix: implemented perfectly synchronized section push-out effect (parallax) for all sections
