@@ -1,14 +1,14 @@
 # CHANGELOG
 
+## 1.3.2
+
+- change: unified layout - removed all responsive breakpoints for identical desktop/mobile experience
+- change: simplified SectionWrapper - removed sticky scroll and parallax mechanics
+- change: removed mobile bottom navigation in favor of single fixed right-side nav
+- change: using dvh units for h-screen to fix mobile viewport height
+- removed: JS-based viewport height calculation
+
 ## 1.3.1
-
-- fix: resolved mobile browser empty space issue with JS-based viewport height calculation
-- fix: sections now properly fill viewport using flexbox (flex-1) instead of problematic min-height
-- change: added window.innerHeight-based --vh custom property updated on resize/orientation change
-- change: SectionWrapper now uses display:flex to ensure children fill available space
-- change: removed inline minHeight styles from all sections in favor of CSS-driven layout
-
-## 1.2.10
 
 - fix: updated currency symbol from $ to ₹ across the application
 - fix: restored separate internal scroll for Fragrance Archive grid with refined spacing (moved up, added internal padding, and increased bottom clearance)
