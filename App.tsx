@@ -49,22 +49,22 @@ function App() {
         <Contact />
       </SectionWrapper>
       
-      {/* Fixed Navigation - Right Side */}
-      <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[60] flex flex-col gap-6 items-center">
+      {/* Fixed Navigation - Bottom on Mobile, Right on Desktop */}
+      <div className="fixed bottom-6 md:bottom-auto md:top-1/2 left-1/2 -translate-x-1/2 md:left-auto md:right-6 md:-translate-y-1/2 z-[60] flex flex-row md:flex-col gap-4 md:gap-6 items-center px-4 py-3 md:p-0 rounded-full md:rounded-none bg-obsidian/40 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none border border-white/5 md:border-none shadow-2xl md:shadow-none">
         {NAV_ITEMS.map(({ id, Icon, label }) => (
           <motion.a 
             key={id} 
             href={`#${id}`}
-            whileHover={{ scale: 1.2, color: '#FC5C02' }}
+            whileHover={{ scale: 1.1, color: '#FC5C02' }}
             whileTap={{ scale: 0.9 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
-            className="group relative flex items-center justify-center p-2 rounded-full bg-white/5 border border-white/10 hover:border-magma/50 transition-colors duration-300 text-white/40"
+            transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+            className="group relative flex items-center justify-center p-3 md:p-2 rounded-full bg-white/5 md:bg-white/5 border border-white/10 hover:border-magma/50 transition-colors duration-300 text-white/40"
             aria-label={`Scroll to ${label}`}
           >
-            <Icon size={18} strokeWidth={1.5} />
+            <Icon size={20} strokeWidth={1.5} className="md:size-[18px]" />
             
-            {/* Tooltip */}
-            <span className="absolute right-full mr-4 px-2 py-1 rounded bg-obsidian border border-white/10 text-[10px] uppercase tracking-widest text-taupe opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out whitespace-nowrap pointer-events-none translate-x-1 group-hover:translate-x-0">
+            {/* Tooltip - Desktop Only */}
+            <span className="absolute bottom-full mb-4 md:bottom-auto md:right-full md:mr-4 px-2 py-1 rounded bg-obsidian border border-white/10 text-[10px] uppercase tracking-widest text-taupe opacity-0 group-hover:opacity-100 transition-all duration-200 ease-out whitespace-nowrap pointer-events-none md:translate-x-1 md:group-hover:translate-x-0">
               {label}
             </span>
             

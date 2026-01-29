@@ -3,6 +3,7 @@
 ## 1.2.11
 
 - fix: implemented mobile responsiveness fix for "squashed" components and excessive bottom scroll space
+- fix: repositioned navigation bar to the bottom for mobile devices with horizontal layout and improved touch targets
 - change: upgraded SectionWrapper to use dynamic viewport height (dvh) and flex-centering for robust mobile vertical alignment
 - fix: increased element scales on mobile (Galleries, Previews, Titles) for better screen utilization
 - fix: resolved syntax error in Hero.tsx and improved text alignment for handheld devices
