@@ -74,8 +74,9 @@ const SectionWrapper = ({
         className="section-content"
         style={{
           width: '100%',
-          height: '100%',
-          minHeight: 'var(--section-height, 100vh)',
+          height: 'var(--section-height, 100vh)',
+          display: 'flex',
+          flexDirection: 'column',
           backgroundColor: '#312B1E',
           overflow: 'hidden',
           // Use transform for smooth parallax movement

@@ -52,7 +52,7 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="pt-16 md:pt-32 px-4 md:px-12 pb-32 md:pb-64 bg-obsidian border-t border-white/5" style={{ minHeight: 'var(--section-height, 100vh)' }}>
+    <section id="inventory" className="flex-1 pt-16 md:pt-32 px-4 md:px-12 pb-32 md:pb-64 bg-obsidian border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gap-4 md:gap-0">
           <ConvergenceWrapper>

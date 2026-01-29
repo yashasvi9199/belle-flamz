@@ -35,23 +35,27 @@
     </script>
     <style>
       :root {
-        /* Viewport height fallback for mobile browsers */
-        --vh-fallback: 100vh;
-        --vh-dynamic: 100dvh;
-        --section-height: 100vh;
-        --section-height-extended: 140vh;
+        /* Dynamic viewport height - set by JS for mobile compatibility */
+        --vh: 1vh;
+        --section-height: calc(var(--vh, 1vh) * 100);
+        --section-height-extended: calc(var(--vh, 1vh) * 140);
       }
-      /* Support for dynamic viewport units */
-      @supports (height: 100dvh) {
-        :root {
-          --section-height: 100dvh;
-          --section-height-extended: 140dvh;
-        }
+      html, body {
+        margin: 0;
+        padding: 0;
       }
       body {
         background-color: #312b1e;
         color: #e2ceae;
         overflow-x: hidden;
+      }
+      /* Ensure sections fill their wrapper */
+      .section-content > section {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        height: 100%;
+        box-sizing: border-box;
       }
       /* Custom scrollbar */
       ::-webkit-scrollbar {
@@ -68,17 +72,6 @@
       @media (max-width: 768px) {
         ::-webkit-scrollbar {
           width: 4px;
-        }
-        /* Use dynamic viewport height on mobile */
-        :root {
-          --section-height: 100vh;
-          --section-height-extended: 140vh;
-        }
-        @supports (height: 100dvh) {
-          :root {
-            --section-height: 100dvh;
-            --section-height-extended: 140dvh;
-          }
         }
         /* Add padding for mobile bottom navigation */
         .section-container:last-child .section-content {
@@ -105,6 +98,23 @@
         scroll-snap-align: start;
       }
     </style>
+    <script>
+      // Mobile viewport height fix
+      // This calculates the actual visible viewport height and sets a CSS custom property
+      function setViewportHeight() {
+        const vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', vh + 'px');
+      }
+      
+      // Set on load
+      setViewportHeight();
+      
+      // Update on resize and orientation change
+      window.addEventListener('resize', setViewportHeight);
+      window.addEventListener('orientationchange', function() {
+        setTimeout(setViewportHeight, 100);
+      });
+    </script>
     <script type="importmap">
       {
         "imports": {

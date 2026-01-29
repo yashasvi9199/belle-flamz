@@ -5,7 +5,7 @@ import { MagneticWrapper } from '../MagneticWrapper';
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-16 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
+    <section id="contact" className="flex-1 py-16 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5">
         <div className="max-w-4xl mx-auto text-center">
             <div className="flex flex-col justify-between items-center mb-12 md:mb-24">
               <ConvergenceWrapper>
