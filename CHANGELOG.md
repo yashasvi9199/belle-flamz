@@ -5,6 +5,9 @@
 - feature: added GitHub Pages deployment workflow and configured Vite base path for subfolder hosting
 - fix: resolved 404 image errors in both dev and production by implementing dynamic asset path resolution
 - feature: comprehensive mobile optimization for all sections with responsive typography, touch-friendly navigation, and horizontal scroll galleries
+- fix: gallery mobile view - removed navigation arrows, added bottom padding for description visibility
+- fix: atelier custom - separated custom shape selection from file upload trigger, added bottom padding for preview visibility
+- fix: fragrance archive - removed scroll constraints on mobile for full card visibility
 
 ## 1.2.8
 
