@@ -1,6 +1,29 @@
 # CHANGELOG
 
-## 1.2.11
+## 1.3.3
+
+- change: unified section layouts using `justify-start` and consistent top padding (py-32) for improved content flow
+- feature: introduced storytelling labels to Gallery, Inventory, and Contact sections to align with Bespoke Atelier
+- fix: refined typography scales for section labels (text-lg on desktop) for better readability
+- change: increased vertical margins between headings and content for a more spacious, premium aesthetic
+
+## 1.3.2
+
+- change: repositioned Bespoke Atelier description label directly below the section heading
+- feature: added high-resolution cinematic background images to Gallery, Atelier, Vault, and Contact sections
+- fix: implemented cinematic shadowing and vignetting on all section backgrounds to match the Hero section aesthetic
+- fix: resolved missing import of getAssetPath in Contact section
+
+## 1.3.1
+
+- change: revised the entire webapp theme to match a high-end luxury fragrance and exotic candle business
+- change: updated color palette to Golden Amber, Vanilla Silk, Sandalwood, and Deep Espresso
+- change: implemented global typography update using Cormorant Garamond (Serif) and Outfit (Sans)
+- change: refined section titles and messaging across Hero, Gallery, Atelier, and Vault sections
+- feature: enhanced SEO metadata with descriptive title and brand-aligned meta description
+- fix: updated all interactive components (buttons, nav, scrollbars) to align with the new aesthetic
+
+## 1.3.0
 
 - fix: implemented mobile responsiveness fix for "squashed" components and excessive bottom scroll space
 - fix: repositioned navigation bar to the bottom for mobile devices with horizontal layout and improved touch targets

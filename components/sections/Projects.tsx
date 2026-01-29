@@ -25,14 +25,28 @@ const Gallery = () => {
   }, [images.length]);
 
   return (
-    <section id="gallery" className="w-full min-h-screen py-10 md:py-20 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto w-full">
+    <section id="gallery" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={getAssetPath('/gallery_background.png')} 
+          alt="Luxury candle showroom" 
+          className="w-full h-full object-cover opacity-20 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-obsidian via-obsidian/40 to-obsidian" />
+      </div>
+      <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Title */}
-        <div className="mb-6 md:mb-16">
+        <div className="mb-12 md:mb-20">
           <ConvergenceWrapper>
             <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
-              THE <span className="text-magma italic">GALLERY</span>
+              CURATED <span className="text-magma italic font-light">COLLECTIONS</span>
             </h2>
+          </ConvergenceWrapper>
+          <ConvergenceWrapper delay={0.1}>
+            <p className="font-sans text-xs md:text-lg text-taupe max-w-lg mt-4 md:mt-6 text-center md:text-left leading-relaxed">
+              Curated collections of our finest artisanal creations, each telling a unique sensory story.
+            </p>
           </ConvergenceWrapper>
         </div>
 
@@ -40,7 +54,7 @@ const Gallery = () => {
           {/* Left Panel - Portrait Preview Only */}
           <ConvergenceWrapper className="lg:col-span-12 xl:col-span-7 flex justify-center order-1" staggerIndex={1}>
             <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[420px] relative">
-              <div className="aspect-[3/4] bg-white/5 rounded-xl md:rounded-2xl overflow-hidden relative group border border-white/5 shadow-2xl">
+              <div className="aspect-[3/4] bg-white/5 rounded-xl md:rounded-2xl overflow-hidden relative group border border-magma/10 shadow-2xl">
                 <img
                   key={selectedImage.src}
                   src={getAssetPath(selectedImage.src)}
@@ -61,7 +75,7 @@ const Gallery = () => {
                 className="flex md:grid md:grid-cols-4 gap-2 overflow-x-auto md:overflow-x-visible md:max-h-[280px] md:overflow-y-auto pb-4 md:pb-0 md:pr-3 scrollbar-thin scrollbar-thumb-magma scrollbar-track-white/5 snap-x snap-mandatory md:snap-none"
                 style={{
                   scrollbarWidth: 'thin',
-                  scrollbarColor: '#FC5C02 rgba(255,255,255,0.05)'
+                  scrollbarColor: '#E9C46A rgba(255,255,255,0.05)'
                 }}
               >
                 {images.map((img, index) => (

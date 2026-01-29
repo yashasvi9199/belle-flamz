@@ -55,7 +55,7 @@ function App() {
           <motion.a 
             key={id} 
             href={`#${id}`}
-            whileHover={{ scale: 1.1, color: '#FC5C02' }}
+            whileHover={{ scale: 1.1, color: '#E9C46A' }}
             whileTap={{ scale: 0.9 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
             className="group relative flex items-center justify-center p-3 md:p-2 rounded-full bg-white/5 md:bg-white/5 border border-white/10 hover:border-magma/50 transition-colors duration-300 text-white/40"

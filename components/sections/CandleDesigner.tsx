@@ -3,6 +3,8 @@ import { Upload, Image } from 'lucide-react';
 import { useCandleDesignerLogic } from '../../hooks/useCandleDesignerLogic';
 import fragranceData from '../../src/data/fragrance.json';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
+import { getAssetPath } from '../../src/utils/path';
+
 
 const CandleDesigner = () => {
   const { design, updateField } = useCandleDesignerLogic();
@@ -26,9 +28,19 @@ const CandleDesigner = () => {
   };
 
   return (
-    <section id="designer" className="w-full min-h-screen py-10 md:py-20 px-4 md:px-12 bg-[#2a2419] border-t border-white/5 relative flex flex-col justify-center overflow-hidden">
+    <section id="designer" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={getAssetPath('/designer_background.png')} 
+          alt="Artisanal candle atelier" 
+          className="w-full h-full object-cover opacity-20 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent" />
+      </div>
+
       {/* Background Gradient */}
-      <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-magma/5 to-transparent opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
@@ -36,18 +48,17 @@ const CandleDesigner = () => {
           <div className="lg:col-span-2 mb-2 md:mb-8">
             <ConvergenceWrapper>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone text-center md:text-left">
-                ATELIER <span className="text-magma">CUSTOM</span>
+                BESPOKE <span className="text-magma italic font-light">ATELIER</span>
               </h2>
+            </ConvergenceWrapper>
+            <ConvergenceWrapper delay={0.1}>
+              <p className="font-sans text-xs md:text-lg text-taupe max-w-lg mt-4 md:mt-6 text-center md:text-left leading-relaxed">
+                Forge your own light. Define the geometry, essence, and frequency.
+              </p>
             </ConvergenceWrapper>
           </div>
 
           <div className="space-y-6 md:space-y-10 order-2 lg:order-1">
-            <ConvergenceWrapper>
-              <p className="font-sans text-xs md:text-lg text-taupe max-w-lg text-center md:text-left leading-relaxed">
-                Forge your own light. Define the geometry, essence, and frequency.
-              </p>
-            </ConvergenceWrapper>
-
             <ConvergenceWrapper className="space-y-6 md:space-y-8" staggerIndex={1}>
               {/* Geometry Selection */}
               <div>

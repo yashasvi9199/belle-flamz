@@ -3,6 +3,8 @@ import { Search } from 'lucide-react';
 import { useInventoryLogic } from '../../hooks/useInventoryLogic';
 import { Fragrance } from '../../types';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
+import { getAssetPath } from '../../src/utils/path';
+
 
 const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
   <div className="group relative p-3 md:p-6 bg-white/5 border border-white/10 hover:border-magma/30 rounded-lg md:rounded-xl transition-colors duration-300">
@@ -33,13 +35,13 @@ const InventoryItemCard = memo(({ fragrance }: { fragrance: Fragrance }) => (
       </div>
       <button 
         disabled={!fragrance.inStock} 
-        className={`px-3 md:px-4 py-1.5 md:py-2 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-widest transition-colors ${
+        className={`px-3 md:px-5 py-2 md:py-2.5 rounded-full font-sans text-[10px] md:text-xs uppercase tracking-[0.2em] transition-all duration-300 ${
           fragrance.inStock 
-            ? 'bg-bone text-obsidian hover:bg-magma hover:text-white' 
-            : 'bg-gray-800 text-gray-600 cursor-not-allowed'
+            ? 'bg-magma text-obsidian hover:bg-bone hover:scale-105 shadow-lg shadow-magma/20' 
+            : 'bg-white/5 text-taupe cursor-not-allowed border border-white/5'
         }`}
       >
-        {fragrance.inStock ? 'Acquire' : 'Depleted'}
+        {fragrance.inStock ? 'Experience' : 'Sold Out'}
       </button>
     </div>
   </div>
@@ -52,24 +54,40 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="w-full min-h-screen py-10 md:py-20 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center">
-      <div className="max-w-7xl mx-auto w-full">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-6 md:gap-0">
-          <ConvergenceWrapper>
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone leading-tight text-center md:text-left">
-              FRAGRANCE <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe">ARCHIVE</span>
-            </h2>
-          </ConvergenceWrapper>
+    <section id="inventory" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+      {/* Background Image Layer */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src={getAssetPath('/inventory_background.png')} 
+          alt="Exotic candle ingredients" 
+          className="w-full h-full object-cover opacity-20 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent" />
+      </div>
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8 md:gap-0">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <ConvergenceWrapper>
+              <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone leading-tight text-center md:text-left">
+                THE OLFACTORY <span className="block text-transparent bg-clip-text bg-gradient-to-r from-magma to-taupe italic font-light">VAULT</span>
+              </h2>
+            </ConvergenceWrapper>
+            <ConvergenceWrapper delay={0.1}>
+              <p className="font-sans text-xs md:text-lg text-taupe max-w-lg text-center md:text-left leading-relaxed">
+                Explore our archive of rare essences and sculptural masterworks, ready to illuminate your space.
+              </p>
+            </ConvergenceWrapper>
+          </div>
 
           <ConvergenceWrapper className="w-full md:w-auto" staggerIndex={1}>
-            <div className="flex gap-2 md:gap-4 items-center bg-white/5 p-2 rounded-lg border border-white/10">
-              <Search className="w-4 h-4 md:w-5 md:h-5 text-taupe ml-2" />
+            <div className="flex gap-2 md:gap-4 items-center bg-white/5 p-2 rounded-lg border border-magma/10 shadow-inner">
+              <Search className="w-4 h-4 md:w-5 md:h-5 text-magma/60 ml-2" />
               <input 
                 type="text" 
-                placeholder="Search your desires" 
+                placeholder="Seek a scent profile..." 
                 value={searchTerm}
                 onChange={(e) => handleSearchChange(e.target.value)}
-                className="bg-transparent border-none outline-none text-bone placeholder-gray-600 font-sans w-full md:w-64 text-sm md:text-base"
+                className="bg-transparent border-none outline-none text-bone placeholder-taupe/50 font-sans w-full md:w-64 text-sm md:text-base"
               />
             </div>
           </ConvergenceWrapper>
@@ -82,7 +100,7 @@ const Inventory = () => {
             }`}
             style={{
               scrollbarWidth: 'thin',
-              scrollbarColor: '#FC5C02 rgba(255,255,255,0.05)'
+              scrollbarColor: '#E9C46A rgba(255,255,255,0.05)'
             }}
           >
             {filteredFragrances.map((fragrance, index) => (

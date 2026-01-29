@@ -2,39 +2,49 @@ import React, { memo } from 'react';
 import { Send } from 'lucide-react';
 import { ConvergenceWrapper } from '../ConvergenceWrapper';
 import { MagneticWrapper } from '../MagneticWrapper';
+import { getAssetPath } from '../../src/utils/path';
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full min-h-screen py-10 md:py-20 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center">
-        <div className="max-w-4xl mx-auto w-full text-center">
-            <div className="flex flex-col justify-between items-center mb-10 md:mb-24">
+    <section id="contact" className="w-full min-h-screen py-24 md:py-32 px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-start overflow-hidden">
+        {/* Background Image Layer */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={getAssetPath('/contact_background.png')} 
+            alt="Minimalist luxury desk" 
+            className="w-full h-full object-cover opacity-20 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
+        </div>
+        <div className="max-w-4xl mx-auto w-full text-center relative z-10">
+            <div className="flex flex-col justify-between items-center mb-12 md:mb-20">
               <ConvergenceWrapper>
-                  <h2 className="font-serif text-3xl md:text-5xl text-bone">INITIATE <span className="text-magma">CONTACT</span></h2>
-                  <p className="font-sans text-xs md:text-base text-taupe mt-3 md:mt-4">For bespoke commissions or wholesale inquiries.</p>
+                  <h2 className="font-serif text-3xl md:text-5xl text-bone">CURATE A <span className="text-magma italic font-light">CONVERSATION</span></h2>
+                  <p className="font-sans text-xs md:text-lg text-taupe mt-4 md:mt-6 max-w-lg mx-auto leading-relaxed">Connect with our artisans for bespoke commissions, wholesale partnerships, or to simply share your experience.</p>
               </ConvergenceWrapper>
             </div>
 
             <ConvergenceWrapper delay={0.2}>
-                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-6 md:p-8 lg:p-12 rounded-2xl border border-white/10">
+                <form className="space-y-4 md:space-y-6 text-left bg-white/5 p-6 md:p-8 lg:p-12 rounded-2xl border border-magma/10 shadow-2xl">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         <div className="space-y-1.5 md:space-y-2">
-                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Identity</label>
-                            <input type="text" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
+                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-[0.2em] font-light">Patron Name</label>
+                            <input type="text" className="w-full bg-obsidian border border-white/10 rounded-lg p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
                         </div>
                         <div className="space-y-1.5 md:space-y-2">
-                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Signal</label>
-                            <input type="email" className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
+                            <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-[0.2em] font-light">Email Address</label>
+                            <input type="email" className="w-full bg-obsidian border border-white/10 rounded-lg p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors" />
                         </div>
                     </div>
                     <div className="space-y-1.5 md:space-y-2">
-                        <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-widest">Transmission</label>
-                        <textarea rows={4} className="w-full bg-obsidian border border-white/10 rounded p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors resize-none" />
+                        <label className="text-[10px] md:text-xs font-sans text-magma uppercase tracking-[0.2em] font-light">Message</label>
+                        <textarea rows={4} className="w-full bg-obsidian border border-white/10 rounded-lg p-3 text-bone text-sm md:text-base focus:border-magma outline-none transition-colors resize-none" />
                     </div>
 
                     <div className="flex justify-end pt-2">
                         <MagneticWrapper>
-                            <button type="button" className="w-full md:w-auto px-8 py-3 bg-bone text-obsidian font-sans font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-magma hover:text-white transition-colors flex items-center justify-center gap-2 rounded">
-                                Transmit <Send className="w-4 h-4" />
+                            <button type="button" className="w-full md:w-auto px-10 py-3 bg-magma text-obsidian font-sans font-bold uppercase tracking-[0.2em] text-[10px] md:text-xs hover:bg-bone hover:scale-105 transition-all duration-300 rounded-full shadow-lg shadow-magma/20 flex items-center justify-center gap-2">
+                                Send Message <Send className="w-4 h-4" />
                             </button>
                         </MagneticWrapper>
                     </div>

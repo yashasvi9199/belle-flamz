@@ -28,12 +28,12 @@ const Hero = () => {
             repeat: Infinity, 
             ease: "easeInOut" 
           }}
-          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_60%,_rgba(252,92,2,0.2),_transparent_50%)] mix-blend-screen"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_30%_60%,_rgba(233,196,106,0.15),_transparent_50%)] mix-blend-screen"
           style={{ willChange: 'opacity, transform' }}
         />
       </div>
 
-      {/* Floating Ember Particles - Reduced count for performance */}
+      {/* Floating Sparkles - Adjusted to gold */}
       <div className="absolute inset-0 pointer-events-none z-10 hidden md:block">
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -53,7 +53,7 @@ const Hero = () => {
               delay: i * 2.5,
               ease: "linear"
             }}
-            className="absolute w-1 h-1 bg-magma rounded-full blur-[1px]"
+            className="absolute w-1 h-1 bg-magma/40 rounded-full blur-[1px]"
             style={{ willChange: 'transform, opacity' }}
           />
         ))}
@@ -78,7 +78,7 @@ const Hero = () => {
               delay: i * 4,
               ease: "linear"
             }}
-            className="absolute w-1 h-1 bg-magma rounded-full blur-[1px]"
+            className="absolute w-1 h-1 bg-magma/40 rounded-full blur-[1px]"
             style={{ willChange: 'transform, opacity' }}
           />
         ))}
@@ -94,14 +94,14 @@ const Hero = () => {
           className="mb-8 md:mb-8"
         >
           <div className="flex items-center justify-center md:justify-start gap-2 md:gap-3 mb-4 md:mb-4">
-            <Flame className="w-5 h-5 text-magma" />
-            <span className="font-sans text-magma text-xs md:text-sm tracking-[0.3em] md:tracking-[0.5em] uppercase">Est. 2024</span>
+            <Flame className="w-4 h-4 text-magma" />
+            <span className="font-sans text-magma text-[10px] md:text-xs tracking-[0.4em] md:tracking-[0.6em] uppercase font-light">Haute Fragrance Atelier</span>
           </div>
           
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] text-transparent bg-clip-text bg-gradient-to-br from-bone via-bone to-taupe/60 text-center md:text-left">
-            BELLE
+          <h1 className="font-serif text-5xl md:text-7xl lg:text-9xl font-extralight tracking-tight leading-[0.8] text-transparent bg-clip-text bg-gradient-to-br from-bone via-bone to-magma/40 text-center md:text-left italic">
+            Belle
             <br />
-            <span className="text-magma">FLAMZ</span>
+            <span className="font-bold text-magma not-italic tracking-tighter">FLAMZ</span>
           </h1>
         </motion.div>
 
@@ -112,19 +112,19 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="space-y-4 md:space-y-4"
         >
-          <p className="font-sans text-taupe text-base md:text-lg lg:text-xl max-w-lg leading-relaxed text-center md:text-left mx-auto md:mx-0">
-            Artisanal candle manufacturing with custom designs, exotic fragrances, and handcrafted elegance.
+          <p className="font-serif text-taupe text-lg md:text-xl lg:text-2xl max-w-lg leading-relaxed text-center md:text-left mx-auto md:mx-0 font-light italic">
+            Illuminating spaces with rare essences and handcrafted sculptural elegance.
           </p>
           
           <div className="flex flex-wrap justify-center md:justify-start gap-2 md:gap-3 pt-4 md:pt-2">
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] md:text-xs font-sans uppercase tracking-wider text-bone/70">
-              Custom Design
+            <span className="px-4 py-1.5 bg-white/5 border border-magma/10 rounded-full text-[9px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-bone/60">
+              Rare Botanicals
             </span>
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] md:text-xs font-sans uppercase tracking-wider text-bone/70">
-              Exotic Fragrances
+            <span className="px-4 py-1.5 bg-white/5 border border-magma/10 rounded-full text-[9px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-bone/60">
+              Oud & Sandalwood
             </span>
-            <span className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-full text-[10px] md:text-xs font-sans uppercase tracking-wider text-bone/70">
-              Retail & Wholesale
+            <span className="px-4 py-1.5 bg-white/5 border border-magma/10 rounded-full text-[9px] md:text-[10px] font-sans uppercase tracking-[0.2em] text-bone/60">
+              Limited Editions
             </span>
           </div>
         </motion.div>
