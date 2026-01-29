@@ -34,6 +34,20 @@
       };
     </script>
     <style>
+      :root {
+        /* Viewport height fallback for mobile browsers */
+        --vh-fallback: 100vh;
+        --vh-dynamic: 100dvh;
+        --section-height: 100vh;
+        --section-height-extended: 140vh;
+      }
+      /* Support for dynamic viewport units */
+      @supports (height: 100dvh) {
+        :root {
+          --section-height: 100dvh;
+          --section-height-extended: 140dvh;
+        }
+      }
       body {
         background-color: #312b1e;
         color: #e2ceae;
@@ -54,6 +68,17 @@
       @media (max-width: 768px) {
         ::-webkit-scrollbar {
           width: 4px;
+        }
+        /* Use dynamic viewport height on mobile */
+        :root {
+          --section-height: 100vh;
+          --section-height-extended: 140vh;
+        }
+        @supports (height: 100dvh) {
+          :root {
+            --section-height: 100dvh;
+            --section-height-extended: 140dvh;
+          }
         }
         /* Add padding for mobile bottom navigation */
         .section-container:last-child .section-content {

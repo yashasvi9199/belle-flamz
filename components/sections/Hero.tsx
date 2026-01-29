@@ -5,7 +5,7 @@ import { getAssetPath } from '../../src/utils/path';
 
 const Hero = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-obsidian text-bone">
+    <section id="hero" className="relative flex flex-col justify-center overflow-hidden bg-obsidian text-bone" style={{ minHeight: 'var(--section-height, 100vh)' }}>
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 

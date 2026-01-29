@@ -62,8 +62,8 @@ const SectionWrapper = ({
       ref={containerRef}
       className="section-container"
       style={{
-        // Match height to provide enough scroll room for the overlap effect
-        height: isLastSection ? '100vh' : '140vh',
+        // Use CSS custom properties for dynamic viewport height (fixes mobile browser chrome issue)
+        height: isLastSection ? 'var(--section-height, 100vh)' : 'var(--section-height-extended, 140vh)',
         position: 'sticky',
         top: 0,
         zIndex: sectionIndex + 1,
@@ -75,7 +75,7 @@ const SectionWrapper = ({
         style={{
           width: '100%',
           height: '100%',
-          minHeight: '100vh',
+          minHeight: 'var(--section-height, 100vh)',
           backgroundColor: '#312B1E',
           overflow: 'hidden',
           // Use transform for smooth parallax movement

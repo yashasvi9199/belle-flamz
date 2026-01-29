@@ -37,7 +37,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery" className="min-h-screen py-16 md:py-20 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5 relative">
+    <section id="gallery" className="py-16 md:py-20 px-4 md:px-12 pb-24 md:pb-32 bg-obsidian border-t border-white/5 relative" style={{ minHeight: 'var(--section-height, 100vh)' }}>
       <div className="max-w-7xl mx-auto">
         {/* Section Title */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-16">
