@@ -31,17 +31,24 @@ const CandleDesigner = () => {
       <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-obsidian to-transparent opacity-50 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-24">
-          <ConvergenceWrapper>
-            <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-bone">
-              ATELIER <span className="text-magma">CUSTOM</span>
-            </h2>
-            <p className="mt-2 md:mt-4 font-sans text-xs md:text-base text-taupe">Forge your own light. Define the geometry, essence, and frequency.</p>
-          </ConvergenceWrapper>
-        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+          {/* Title Area - Desktop spans 2 */}
+          <div className="lg:col-span-2 mb-2 md:mb-8">
+            <ConvergenceWrapper>
+              <h2 className="font-serif text-3xl md:text-5xl lg:text-5xl text-bone">
+                ATELIER <span className="text-magma">CUSTOM</span>
+              </h2>
+            </ConvergenceWrapper>
+          </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-16">
-          <ConvergenceWrapper className="space-y-4 md:space-y-8" staggerIndex={1}>
+          <div className="space-y-8 md:space-y-12">
+            <ConvergenceWrapper>
+              <p className="font-sans text-xs md:text-base text-taupe max-w-lg">
+                Forge your own light. Define the geometry, essence, and frequency.
+              </p>
+            </ConvergenceWrapper>
+
+            <ConvergenceWrapper className="space-y-4 md:space-y-8" staggerIndex={1}>
             {/* Geometry Selection */}
             <div>
               <label className="block text-xs md:text-sm font-sans text-magma uppercase tracking-widest mb-3 md:mb-4">Geometry</label>
@@ -140,10 +147,11 @@ const CandleDesigner = () => {
               </div>
             </div>
           </ConvergenceWrapper>
+        </div>
 
           {/* Preview Panel */}
-          <ConvergenceWrapper className="flex flex-col justify-center items-center" staggerIndex={2}>
-            <div className="w-full max-w-[200px] md:max-w-sm lg:max-w-none aspect-square relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl flex items-center justify-center p-4 md:p-12">
+          <ConvergenceWrapper className="h-full flex flex-col" staggerIndex={2}>
+            <div className="w-full h-full min-h-[350px] lg:min-h-[500px] relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl md:rounded-2xl flex items-center justify-center p-6 md:p-12 lg:mb-[-24px]">
               {/* Abstract Visualizer */}
               <div 
                 className="w-32 h-32 md:w-64 md:h-64 rounded-full blur-3xl transition-all duration-1000 opacity-60"
@@ -154,21 +162,21 @@ const CandleDesigner = () => {
                   <img 
                     src={design.customImage} 
                     alt="Custom design"
-                    className="max-w-[100px] max-h-[100px] md:max-w-[200px] md:max-h-[200px] object-contain rounded-lg shadow-2xl"
+                    className="max-w-[120px] max-h-[120px] md:max-w-[200px] md:max-h-[200px] object-contain rounded-lg shadow-2xl"
                     style={{ boxShadow: `0 0 50px ${design.color}40` }}
                   />
                 ) : (
                   <div 
                     className={`transition-all duration-500 bg-white/10 border border-white/20 backdrop-blur-sm shadow-2xl
-                      ${design.shape === 'pillar' ? 'w-16 h-32 md:w-32 md:h-64' : ''}
-                      ${design.shape === 'jar' ? 'w-24 h-28 md:w-48 md:h-56 rounded-b-xl' : ''}
-                      ${design.shape === 'custom' ? 'w-24 h-24 md:w-48 md:h-48 rounded-xl border-dashed' : ''}
+                      ${design.shape === 'pillar' ? 'w-18 h-36 md:w-32 md:h-64' : ''}
+                      ${design.shape === 'jar' ? 'w-28 h-32 md:w-48 md:h-56 rounded-b-xl' : ''}
+                      ${design.shape === 'custom' ? 'w-28 h-28 md:w-48 md:h-48 rounded-xl border-dashed' : ''}
                     `}
                     style={{ boxShadow: `0 0 50px ${design.color}40` }}
                   >
                     {design.shape === 'custom' && !design.customImage && (
                       <div className="w-full h-full flex items-center justify-center">
-                        <Upload className="w-8 h-8 md:w-12 md:h-12 text-white/20" />
+                        <Upload className="w-8 h-8 md:w-16 md:h-16 text-white/20" />
                       </div>
                     )}
                   </div>

@@ -4,6 +4,7 @@
 
 - fix: updated currency symbol from $ to ₹ across the application
 - fix: restored separate internal scroll for Fragrance Archive grid on both mobile and desktop
+- fix: adjusted Atelier Custom layout to align preview panel with tagline and extend vertically
 - change: refined mobile viewport sizing for all sections to prevent bottom clipping
 
 ## 1.2.9
