@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.4.0
+
+- fix: increased top padding (py-20 to py-24) across all sections to prevent headings from being clipped by the previous section's sticky transition
+- fix: reduced bottom margins for section headers to maintain vertical balance after adding top padding
+- fix: ensured headings are fully visible in the "Olfactory Vault", "Bespoke Atelier", "Curated Collections", and "Contact" sections
+
 ## 1.3.9
 
 - fix: restored curtain sticky scroll effect for mobile viewports to maintain visual parity with desktop

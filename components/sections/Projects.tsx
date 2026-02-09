@@ -25,7 +25,7 @@ const Gallery = () => {
   }, [images.length]);
 
   return (
-    <section id="gallery" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
+    <section id="gallery" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center py-20 md:py-24 overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -37,7 +37,7 @@ const Gallery = () => {
       </div>
       <div className="max-w-7xl mx-auto w-full relative z-10">
         {/* Section Title */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-6 md:mb-12">
           <ConvergenceWrapper>
             <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone">
               CURATED <span className="text-magma italic font-light">COLLECTIONS</span>

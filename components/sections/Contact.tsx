@@ -6,7 +6,7 @@ import { getAssetPath } from '../../src/utils/path';
 
 const Contact = () => {
   return (
-    <section id="contact" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
+    <section id="contact" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center py-20 md:py-24 overflow-hidden">
         {/* Background Image Layer */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -17,7 +17,7 @@ const Contact = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent" />
         </div>
         <div className="max-w-4xl mx-auto w-full text-center relative z-10">
-            <div className="flex flex-col justify-between items-center mb-8 md:mb-12">
+            <div className="flex flex-col justify-between items-center mb-6 md:mb-12">
               <ConvergenceWrapper>
                   <h2 className="font-serif text-3xl md:text-5xl text-bone">CURATE A <span className="text-magma italic font-light">CONVERSATION</span></h2>
                   <p className="font-sans text-xs md:text-lg text-taupe mt-4 md:mt-6 max-w-lg mx-auto leading-relaxed">Connect with our artisans for bespoke commissions, wholesale partnerships, or to simply share your experience.</p>

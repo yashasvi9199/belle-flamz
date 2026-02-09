@@ -54,7 +54,7 @@ const Inventory = () => {
   const showScrollbar = filteredFragrances.length > 3;
 
   return (
-    <section id="inventory" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden md:h-screen">
+    <section id="inventory" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center py-20 md:py-24 overflow-hidden md:h-screen">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -65,7 +65,7 @@ const Inventory = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/60 to-transparent" />
       </div>
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-8 md:gap-0">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-12 gap-8 md:gap-0">
           <div className="flex flex-col gap-4 md:gap-6">
             <ConvergenceWrapper>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone leading-tight text-center md:text-left">

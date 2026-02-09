@@ -28,7 +28,7 @@ const CandleDesigner = () => {
   };
 
   return (
-    <section id="designer" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center md:py-10 overflow-hidden">
+    <section id="designer" className="w-full min-h-screen px-4 md:px-12 bg-obsidian border-t border-white/5 relative flex flex-col justify-center py-20 md:py-24 overflow-hidden">
       {/* Background Image Layer */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -45,7 +45,7 @@ const CandleDesigner = () => {
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Title Area */}
-          <div className="lg:col-span-2 mb-4 md:mb-6">
+          <div className="lg:col-span-2 mb-2 md:mb-6">
             <ConvergenceWrapper>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-7xl text-bone text-center md:text-left">
                 BESPOKE <span className="text-magma italic font-light">ATELIER</span>
